@@ -33,7 +33,7 @@ function TreeNodeEdge(props: TreeEdgeProps) {
         if (isLocateAction) {
             setIsNodePath(edge.isNodePath);
         }
-    }, [edge]);
+    }, [props]);
 
     return (
         <line
