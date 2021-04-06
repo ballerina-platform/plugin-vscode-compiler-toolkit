@@ -1,0 +1,17 @@
+{
+	"rules": {
+		"no-string-throw": true,
+		"no-unused-expression": true,
+		"no-duplicate-variable": true,
+		"curly": true,
+		"class-name": true,
+		"object-literal-sort-keys": false,
+		"semicolon": [
+			true,
+			"always"
+		],
+		"triple-equals": true,
+		"trailing-comma": false
+	},
+	"defaultSeverity": "warning"
+}
