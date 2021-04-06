@@ -24,11 +24,12 @@ import { DropdownTreeProps, TreeNodeObject } from "../resources/tree-interfaces"
 import * as styles from "../styles/dropdown-tree.styles";
 
 function DropdownTree(props: DropdownTreeProps) {
+    const {treeNode, onCollapseTree, onFindNode} = props;    
     const [detailedNode, setDetailedNode] = useState<TreeNodeObject | undefined>(undefined);
 
     useEffect(() => {
-        setDetailedNode(props.treeNode);
-    }, [props.treeNode.nodeID]);
+        setDetailedNode(treeNode);
+    }, [treeNode.nodeID]);
 
     function updateDetailedNode(nodeProp: TreeNodeObject) {
         setDetailedNode(nodeProp);
@@ -42,12 +43,12 @@ function DropdownTree(props: DropdownTreeProps) {
                 paddingRight: 20
             }}>
                 <DropdownNode
-                    treeNode = {props.treeNode}
+                    treeNode = {treeNode}
                     treeLevel = {0}
-                    detailedNode = {detailedNode ? detailedNode.nodeID : props.treeNode.nodeID}
+                    detailedNode = {detailedNode ? detailedNode.nodeID : treeNode.nodeID}
                     onClick = {updateDetailedNode}
-                    onCollapseTree = {props.onCollapseTree}
-                    onFindNode = {props.onFindNode}
+                    onCollapseTree = {onCollapseTree}
+                    onFindNode = {onFindNode}
                 />
             </div>
 

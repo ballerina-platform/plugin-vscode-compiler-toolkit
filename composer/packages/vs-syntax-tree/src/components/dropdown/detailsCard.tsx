@@ -22,6 +22,8 @@ import { DetailsCardProp } from "../../resources/tree-interfaces";
 import * as styles from "../../styles/dropdown-tree.styles";
 
 function DropdownDetails(props: DetailsCardProp) {
+    const {title, value} = props;
+
     return (
         <div style = {{
                 ...styles.detailsCardStyle,
@@ -29,11 +31,11 @@ function DropdownDetails(props: DetailsCardProp) {
             }}
         >
             <div style = {styles.detailsCardTitleStyle}>
-                {props.title}
+                {title}
             </div>
 
             <div style = {styles.detailsCardValueStyle}>
-                {props.value}
+                {value}
             </div>
         </div>
     );

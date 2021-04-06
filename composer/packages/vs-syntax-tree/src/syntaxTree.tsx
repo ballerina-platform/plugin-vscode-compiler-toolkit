@@ -26,6 +26,8 @@ import { PrimaryProps, TreeGraph, TreeNodeObject } from "./resources/tree-interf
 import * as styles from "./styles/primary.styles";
 
 function SyntaxTree(props: PrimaryProps) {
+    const {activatedCommand, onFindNode, onCollapseTree, renderTree, switchFullTree} = props;
+
     const [responseStatus, setResponseStatus] = useState(true);
     const [isDropdownView, setIsDropdownView] = useState(false);
     const [hoverViewSwitch, setViewSwitchStatus] = useState(false);
@@ -34,7 +36,7 @@ function SyntaxTree(props: PrimaryProps) {
     const [dropdownTree, setDropdownTree] = useState<TreeNodeObject[] | undefined>(undefined);
 
     useEffect(() => {
-        props.renderTree().then((result) => {
+        renderTree().then((result) => {
             if (result.treeArray && result.treeGraph) {
                 setResponseStatus(true);
                 setGraphicalTree(result.treeGraph);
@@ -62,13 +64,13 @@ function SyntaxTree(props: PrimaryProps) {
             {responseStatus &&
                 <div>
                     <div style = {styles.optionsContainer}>
-                        {props.activatedCommand !== FULL_TREE_MODE &&
+                        {activatedCommand !== FULL_TREE_MODE &&
                             <div
                                 style = {styles.optionBlock}
                                 onMouseLeave = {() => updateFullTreeSwitchStatus(false)}
                                 onMouseOver = {() => updateFullTreeSwitchStatus(true)}
                             >
-                                <Button as = "div" labelPosition = "left" onClick = {() => props.switchFullTree()}>
+                                <Button as = "div" labelPosition = "left" onClick = {() => switchFullTree()}>
                                     {hoverFullTreeSwitch &&
                                         <Label basic color = "teal" as = "a" pointing = "right">
                                             Switch to Full Tree View
@@ -106,16 +108,16 @@ function SyntaxTree(props: PrimaryProps) {
                         {isDropdownView && dropdownTree &&
                             <DropdownTree
                                 treeNode = {dropdownTree[0]}
-                                onCollapseTree = {props.onCollapseTree}
-                                onFindNode = {props.onFindNode}
+                                onCollapseTree = {onCollapseTree}
+                                onFindNode = {onFindNode}
                             />
                         }
 
                         {!isDropdownView && graphicalTree &&
                             <GraphicalTree
                                 treeGraph = {graphicalTree}
-                                onCollapseTree = {props.onCollapseTree}
-                                onFindNode = {props.onFindNode}
+                                onCollapseTree = {onCollapseTree}
+                                onFindNode = {onFindNode}
                             />
                         }
 

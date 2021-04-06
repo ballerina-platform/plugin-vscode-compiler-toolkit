@@ -23,36 +23,37 @@ import TreeNode from "../components/graphical/treeNode";
 import { GraphicalTreeProps } from "../resources/tree-interfaces";
 
 function GraphicalTree(props: GraphicalTreeProps) {
+    const {treeGraph, onFindNode, onCollapseTree} = props;
     const [isLocateAction, setIsLocateAction] = useState(false);
 
     useEffect(() => {
-        if (props.treeGraph) {
-            setIsLocateAction(props.treeGraph.isLocateMode);
+        if (treeGraph) {
+            setIsLocateAction(treeGraph.isLocateMode);
         }
-    }, [props.treeGraph]);
+    }, [treeGraph]);
 
     return (
         <div>
-            {props.treeGraph &&
+            {treeGraph &&
                 <div>
                 {
-                    props.treeGraph.children.map((item, id) => {
+                    treeGraph.children.map((item, id) => {
                         return <TreeNode
                                     key = {id}
                                     node = {item}
                                     isLocateAction = {isLocateAction}
-                                    onFindNode = {() => props.onFindNode(item.position)}
-                                    onCollapseTree = {() => props.onCollapseTree(item.id, true)}
+                                    onFindNode = {() => onFindNode(item.position)}
+                                    onCollapseTree = {() => onCollapseTree(item.id, true)}
                                 />;
                     })
                 }
 
                     <svg
-                        width = {props.treeGraph.width}
-                        height = {props.treeGraph.height}
+                        width = {treeGraph.width}
+                        height = {treeGraph.height}
                     >
                         {
-                            props.treeGraph.edges.map((item, id) => {
+                            treeGraph.edges.map((item, id) => {
                                 return <TreeNodeEdge
                                             key = {id}
                                             edge = {item}

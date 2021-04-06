@@ -33,39 +33,41 @@ import { DropdownNodeProps } from "../../resources/tree-interfaces";
 import * as styles from "../../styles/dropdown-tree.styles";
 
 function DropdownNode(props: DropdownNodeProps) {
+    const {treeNode, treeLevel, detailedNode, onClick, onCollapseTree, onFindNode} = props;
+
     const [ifCollapsible, setIfCollapsible] = useState(false);
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [showDetails, setShowDetails] = useState(false);
     const [hoverStatus, setHoverStatus] = useState(false);
 
     useEffect(() => {
-        if (props.treeNode.children && props.treeNode.children.length) {
+        if (treeNode.children && treeNode.children.length) {
             setIfCollapsible(true);
         }
 
-        setShowDetails(props.detailedNode === props.treeNode.nodeID ? true : false);
-        setIsCollapsed(props.treeNode.didCollapse);
-    }, [props.treeNode, props.detailedNode]);
+        setShowDetails(detailedNode === treeNode.nodeID ? true : false);
+        setIsCollapsed(treeNode.didCollapse);
+    }, [treeNode, detailedNode]);
 
     function updateHoverStatus(state: boolean) {
         setHoverStatus(state);
     }
 
     function onClickNode() {
-        props.onClick(props.treeNode);
+        onClick(treeNode);
         setShowDetails(true);
     }
 
     return (
         <div>
             <div
-                onMouseOver = {() => { props.treeNode.position ? updateHoverStatus(true) : {}; }}
+                onMouseOver = {() => { treeNode.position ? updateHoverStatus(true) : {}; }}
                 onMouseLeave = {() => updateHoverStatus(false)}
                 style = {{
                     ...styles.dropdownNodeStyle,
                     backgroundColor: showDetails ? "#f5f5f0" : "white",
                     fontStyle: showDetails ? "italic" : "normal",
-                    marginLeft: props.treeLevel * 35
+                    marginLeft: treeLevel * 35
                 }}
             >
                 <div style = {styles.dropdownArrowStyle}>
@@ -73,7 +75,7 @@ function DropdownNode(props: DropdownNodeProps) {
                         <Icon
                             name = {NON_COLLAPSIBLE_ICON}
                             size = {SMALL_ICON}
-                            color = {props.treeNode.errorNode ? WARNING_COLOR : DEFAULT_DROPDOWN_COLOR}
+                            color = {treeNode.errorNode ? WARNING_COLOR : DEFAULT_DROPDOWN_COLOR}
                         />
                     }
 
@@ -81,8 +83,8 @@ function DropdownNode(props: DropdownNodeProps) {
                         <Icon
                             name = {COLLAPSED_ARROW_ICON}
                             size = {LARGE_ICON}
-                            color = {props.treeNode.errorNode ? WARNING_COLOR : DEFAULT_DROPDOWN_COLOR}
-                            onClick = {ifCollapsible ? () => props.onCollapseTree(props.treeNode.nodeID, false)
+                            color = {treeNode.errorNode ? WARNING_COLOR : DEFAULT_DROPDOWN_COLOR}
+                            onClick = {ifCollapsible ? () => onCollapseTree(treeNode.nodeID, false)
                                 : () => {}}
                         />
                     }
@@ -91,8 +93,8 @@ function DropdownNode(props: DropdownNodeProps) {
                         <Icon
                             name = {COLLAPSIBLE_ARROW_ICON}
                             size = {LARGE_ICON}
-                            color = {props.treeNode.errorNode ? WARNING_COLOR : DEFAULT_DROPDOWN_COLOR}
-                            onClick = {ifCollapsible ? () => props.onCollapseTree(props.treeNode.nodeID, false)
+                            color = {treeNode.errorNode ? WARNING_COLOR : DEFAULT_DROPDOWN_COLOR}
+                            onClick = {ifCollapsible ? () => onCollapseTree(treeNode.nodeID, false)
                                 : () => {}}
                         />
                     }
@@ -101,21 +103,21 @@ function DropdownNode(props: DropdownNodeProps) {
                 <div
                     style = {{
                         ...styles.nodeLabelStyle,
-                        color: props.treeNode.errorNode ? WARNING_COLOR : DEFAULT_DROPDOWN_COLOR,
-                        fontWeight: props.treeNode.isNodePath ? "bold" : "normal"
+                        color: treeNode.errorNode ? WARNING_COLOR : DEFAULT_DROPDOWN_COLOR,
+                        fontWeight: treeNode.isNodePath ? "bold" : "normal"
                     }}
                     onClick = {onClickNode}
                 >
-                    {props.treeNode.value.length > 25 ? props.treeNode.kind : props.treeNode.value}
+                    {treeNode.value.length > 25 ? treeNode.kind : treeNode.value}
 
-                    {ifCollapsible && !props.treeNode.didCollapse && props.treeNode.diagnostics &&
-                        props.treeNode.diagnostics.length > 0 &&
-                        <div style = {styles.iconStyle}>
-                            <Icon
-                                name = {DROPDOWN_WARNING_ICON}
-                                color = {WARNING_COLOR}
-                            />
-                        </div>
+                    {ifCollapsible && !treeNode.didCollapse && treeNode.diagnostics &&
+                        treeNode.diagnostics.length > 0 &&
+                            <div style = {styles.iconStyle}>
+                                <Icon
+                                    name = {DROPDOWN_WARNING_ICON}
+                                    color = {WARNING_COLOR}
+                                />
+                            </div>
                     }
                 </div>
 
@@ -124,31 +126,31 @@ function DropdownNode(props: DropdownNodeProps) {
                     cursor: "pointer",
                     marginRight: 4
                 }}>
-                    {hoverStatus && props.treeNode.position &&
+                    {hoverStatus && treeNode.position &&
                         <Icon
                             name = {DROPDOWN_LOCATE_ICON}
                             circular
                             inverted
                             color = {PRIMARY_COLOR}
                             size = {SMALL_ICON}
-                            onClick = {() => { props.onFindNode(props.treeNode.position); }}
+                            onClick = {() => { onFindNode(treeNode.position); }}
                         />
                     }
                 </div>
             </div>
 
             {ifCollapsible && isCollapsed &&
-                props.treeNode.children.map((item, id) => {
-                    const level = props.treeLevel + 1;
+                treeNode.children.map((item, id) => {
+                    const level = treeLevel + 1;
 
                     return <DropdownNode
                                 key = {id}
                                 treeNode = {item}
                                 treeLevel = {level}
-                                detailedNode = {props.detailedNode}
-                                onClick = {props.onClick}
-                                onCollapseTree = {props.onCollapseTree}
-                                onFindNode = {props.onFindNode}
+                                detailedNode = {detailedNode}
+                                onClick = {onClick}
+                                onCollapseTree = {onCollapseTree}
+                                onFindNode = {onFindNode}
                             />;
                 })
             }

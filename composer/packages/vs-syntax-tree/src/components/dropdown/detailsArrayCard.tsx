@@ -23,16 +23,18 @@ import { DetailsArrayCardProp } from "../../resources/tree-interfaces";
 import * as styles from "../../styles/dropdown-tree.styles";
 
 function DropdownArrayDetails(props: DetailsArrayCardProp) {
+    const {title, type, value} = props;
+
     return (
         <div style = {styles.detailsCardStyle}>
             <div style = {styles.detailsCardTitleStyle}>
-                {props.title}
+                {title}
             </div>
 
-            {props.value &&
+            {value &&
                 <div style = {styles.detailsArrayValueBlock}>
-                    {props.value.map((item, id) => {
-                        if (props.type === MINUTIAE) {
+                    {value.map((item, id) => {
+                        if (type === MINUTIAE) {
                             if (!item.isInvalid) {
                                 return <div key = {id}
                                             style = {styles.detailsCardValueStyle}

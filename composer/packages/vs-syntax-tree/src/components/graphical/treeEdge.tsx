@@ -22,16 +22,18 @@ import { TreeEdgeProps } from "../../resources/tree-interfaces";
 import { treeEdgeStyles } from "../../styles/graphical-tree.styles";
 
 function TreeNodeEdge(props: TreeEdgeProps) {
-    const [isLocateAction, setIsLocateAction] = useState(false);
+    const {edge, isLocateAction} = props;
+
+    const [isLocateMode, setIsLocateMode] = useState(false);
     const [isNodePath, setIsNodePath] = useState(false);
-    const edgeCoords = props.edge.sections;
+    const edgeCoords = edge.sections;
 
     useEffect(() => {
-        setIsLocateAction(props.isLocateAction);
-        if (props.isLocateAction) {
-            setIsNodePath(props.edge.isNodePath);
+        setIsLocateMode(isLocateAction);
+        if (isLocateAction) {
+            setIsNodePath(edge.isNodePath);
         }
-    }, [props]);
+    }, [edge]);
 
     return (
         <line
@@ -42,8 +44,8 @@ function TreeNodeEdge(props: TreeEdgeProps) {
 
             style = {{
                 ...treeEdgeStyles,
-                opacity: isLocateAction ? (isNodePath ? 1 : 0.3) : 1,
-                strokeWidth: isLocateAction ? (isNodePath ? 1.1 : 1) : 1
+                opacity: isLocateMode ? (isNodePath ? 1 : 0.3) : 1,
+                strokeWidth: isLocateMode ? (isNodePath ? 1.1 : 1) : 1
             }}
         />
     );

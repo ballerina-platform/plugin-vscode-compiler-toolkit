@@ -23,15 +23,17 @@ import { GraphicalDetailsProps, Minutiae } from "../../resources/tree-interfaces
 import * as styles from "../../styles/graphical-tree.styles";
 
 function NodeDetails(props: GraphicalDetailsProps) {
+    const {node} = props;
+
     const [isEdgeNode, setIsEdgeNode] = useState(false);
     const [isBottomNode, setIsBottomNode] = useState(false);
 
     useEffect(() => {
-        if (props.node.x + 400 > window.innerWidth) {
+        if (node.x + 400 > window.innerWidth) {
             setIsEdgeNode(true);
         }
 
-        if (props.node.y + 350 > window.innerHeight) {
+        if (node.y + 350 > window.innerHeight) {
             setIsBottomNode(true);
         }
     }, []);
@@ -55,29 +57,29 @@ function NodeDetails(props: GraphicalDetailsProps) {
                     ...styles.popupArrowStyle,
                     borderBottom: isBottomNode ? "none" : "15px solid #f5f5f0",
                     borderTop: isBottomNode ? "15px solid #f5f5f0" : "none",
-                    left: props.node.x + (props.node.width / 2),
-                    top: isBottomNode ? (props.node.y - 15) : (props.node.y + 50),
+                    left: node.x + (node.width / 2),
+                    top: isBottomNode ? (node.y - 15) : (node.y + 50),
                     transform: "translateX(-40%)"
                 }}
             />
             <div
                 style = {{
                     ...styles.popupBodyStyle,
-                    left: props.node.x + (props.node.width / 2),
-                    top: isBottomNode ? (props.node.y - 15) : (props.node.y + props.node.height + 15),
+                    left: node.x + (node.width / 2),
+                    top: isBottomNode ? (node.y - 15) : (node.y + node.height + 15),
                     transform: isBottomNode ? (isEdgeNode ? "translate(-80%, -100%)" : "translate(-10%, -100%)") :
                         (isEdgeNode ? "translateX(-80%)" : "translateX(-10%)")
                 }}
             >
-                <p> <b>{NODE_KIND} :</b>  {props.node.kind}</p><hr/>
+                <p> <b>{NODE_KIND} :</b>  {node.kind}</p><hr/>
 
-                {props.node.position &&
+                {node.position &&
                     <div>
                         <p> <b>Position :</b>
-                            {" (" + (props.node.position.startLine + 1) + ", "
-                                + (props.node.position.startColumn + 1) + ") , ("
-                                + (props.node.position.endLine + 1) + ", "
-                                + (props.node.position.endColumn + 1) + ")"
+                            {" (" + (node.position.startLine + 1) + ", "
+                                + (node.position.startColumn + 1) + ") , ("
+                                + (node.position.endLine + 1) + ", "
+                                + (node.position.endColumn + 1) + ")"
                             }
                         </p> <hr/>
                     </div>
@@ -86,18 +88,18 @@ function NodeDetails(props: GraphicalDetailsProps) {
                 <p style = {styles.titleFontStyle}>
                     {LEADING_MINUTIAE}
                 </p>
-                {props.node.leadingMinutiae && props.node.leadingMinutiae.length  > 0 &&
-                    mapMinutiae(props.node.leadingMinutiae)
+                {node.leadingMinutiae && node.leadingMinutiae.length  > 0 &&
+                    mapMinutiae(node.leadingMinutiae)
                 }
-                {(!props.node.leadingMinutiae || props.node.leadingMinutiae.length < 1) && <p> {NONE} </p>} <hr/>
+                {(!node.leadingMinutiae || node.leadingMinutiae.length < 1) && <p> {NONE} </p>} <hr/>
 
                 <p style = {styles.titleFontStyle}>
                     {TRAILING_MINUTIAE}
                 </p>
-                {props.node.trailingMinutiae && props.node.trailingMinutiae.length > 0 &&
-                    mapMinutiae(props.node.trailingMinutiae)
+                {node.trailingMinutiae && node.trailingMinutiae.length > 0 &&
+                    mapMinutiae(node.trailingMinutiae)
                 }
-                {(!props.node.trailingMinutiae || props.node.trailingMinutiae.length < 1) && <p> {NONE} </p>}
+                {(!node.trailingMinutiae || node.trailingMinutiae.length < 1) && <p> {NONE} </p>}
             </div>
         </div>
     );
