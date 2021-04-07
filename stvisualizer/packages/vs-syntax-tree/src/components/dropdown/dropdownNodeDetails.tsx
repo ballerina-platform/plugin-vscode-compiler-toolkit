@@ -40,21 +40,21 @@ function DropdownNodeDetails(props: DropdownDetailsProps) {
         <div style = {styles.detailsBlockStyle}>
             {!treeNode && <text> {ERROR_MESSAGE} </text>}
 
-            {treeNode &&
+            {treeNode && (
                 <div>
-                    {treeNode.value.length > 25 && treeNode.kind === INVALID_TOKEN &&
+                    {treeNode.value.length > 25 && treeNode.kind === INVALID_TOKEN && (
                         <DropdownDetails
                             title = "Value"
                             value = {treeNode.value}
                         />
-                    }
+                    )}
 
                     <DropdownDetails
                         title = {NODE_KIND}
                         value = {treeNode.kind}
                     />
 
-                    {treeNode.position &&
+                    {treeNode.position && (
                         <div>
                             <DropdownDetails
                                 title = {STARTING_POS}
@@ -68,54 +68,54 @@ function DropdownNodeDetails(props: DropdownDetailsProps) {
                                             + (treeNode.position.endColumn + 1) + ")"}
                             />
                         </div>
-                    }
+                    )}
 
-                    {treeNode.leadingMinutiae && treeNode.leadingMinutiae.length > 0 &&
+                    {treeNode.leadingMinutiae && treeNode.leadingMinutiae.length > 0 && (
                         <DropdownArrayDetails
                             title = {LEADING_MINUTIAE}
                             type = {MINUTIAE}
                             value = {treeNode.leadingMinutiae}
                         />
-                    }
+                    )}
 
-                    {(!treeNode.leadingMinutiae || treeNode.leadingMinutiae.length < 1) &&
+                    {(!treeNode.leadingMinutiae || treeNode.leadingMinutiae.length < 1) && (
                         <DropdownDetails
                             title = {LEADING_MINUTIAE}
                             value = {NONE}
                         />
-                    }
+                    )}
 
-                    {treeNode.trailingMinutiae && treeNode.trailingMinutiae.length > 0 &&
+                    {treeNode.trailingMinutiae && treeNode.trailingMinutiae.length > 0 && (
                         <DropdownArrayDetails
                             title = {TRAILING_MINUTIAE}
                             type = {MINUTIAE}
                             value = {treeNode.trailingMinutiae}
                         />
-                    }
+                    )}
 
-                    {(!treeNode.trailingMinutiae || treeNode.trailingMinutiae.length < 1) &&
+                    {(!treeNode.trailingMinutiae || treeNode.trailingMinutiae.length < 1) && (
                         <DropdownDetails
                             title = {TRAILING_MINUTIAE}
                             value = {NONE}
                         />
-                    }
+                    )}
 
-                    {treeNode.diagnostics && treeNode.diagnostics.length > 0 &&
+                    {treeNode.diagnostics && treeNode.diagnostics.length > 0 && (
                         <DropdownArrayDetails
                             title = {DIAGNOSTICS}
                             type = {DIAGNOSTICS}
                             value = {treeNode.diagnostics}
                         />
-                    }
+                    )}
 
-                    {(!treeNode.diagnostics || treeNode.diagnostics.length < 1) &&
+                    {(!treeNode.diagnostics || treeNode.diagnostics.length < 1) && (
                         <DropdownDetails
                             title = {DIAGNOSTICS}
                             value = {NONE}
                         />
-                    }
+                    )}
                 </div>
-            }
+            )}
         </div>
     );
 }

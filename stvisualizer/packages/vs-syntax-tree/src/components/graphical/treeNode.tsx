@@ -45,8 +45,10 @@ function TreeNode(props: GraphicalNodeProps) {
     }
 
     function onClickNode() {
-        updateHoverNodeState(false);
-        onCollapseTree();
+        if (node.ifParent) {
+            updateHoverNodeState(false);
+            onCollapseTree();
+        }
     }
 
     return (
@@ -68,7 +70,7 @@ function TreeNode(props: GraphicalNodeProps) {
                     onMouseLeave = {() => updateHoverNodeState(false)}
                     onMouseOver = {() => updateHoverNodeState(true)}
                 >
-                    {didHoverNode && node.position &&
+                    {didHoverNode && node.position && (
                         <div
                             style = {{
                                 ...styles.iconStyle,
@@ -83,13 +85,13 @@ function TreeNode(props: GraphicalNodeProps) {
                                 inverted
                             />
                         </div>
-                    }
-                    <div onClick = {node.ifParent ? onClickNode : () => {}}>
+                    )}
+                    <div onClick = {onClickNode}>
                         {node.label}
                     </div>
                 </div>
 
-                {node.hasDiagnostics && node.diagnostics.length &&
+                {node.hasDiagnostics && node.diagnostics.length && (
                     <div
                         style = {styles.iconStyle}
                         onMouseLeave = {() => updateHoverWarningState(false)}
@@ -101,7 +103,7 @@ function TreeNode(props: GraphicalNodeProps) {
                             color = {WARNING_COLOR}
                         />
                     </div>
-                }
+                )}
             </div>
 
             {didHoverNode && <NodeDetails node = {node} />}

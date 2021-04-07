@@ -24,7 +24,7 @@ import { DropdownTreeProps, TreeNodeObject } from "../resources/tree-interfaces"
 import * as styles from "../styles/dropdown-tree.styles";
 
 function DropdownTree(props: DropdownTreeProps) {
-    const {treeNode, onCollapseTree, onFindNode} = props;    
+    const {treeNode, onCollapseTree, onFindNode} = props;
     const [detailedNode, setDetailedNode] = useState<TreeNodeObject | undefined>(undefined);
 
     useEffect(() => {
@@ -37,11 +37,13 @@ function DropdownTree(props: DropdownTreeProps) {
 
     return (
         <div style = {styles.containerStyle}>
-            <div style = {{
-                ...styles.sideDividerStyle,
-                marginRight: 30,
-                paddingRight: 20
-            }}>
+            <div
+                style = {{
+                    ...styles.sideDividerStyle,
+                    marginRight: 30,
+                    paddingRight: 20
+                }}
+            >
                 <DropdownNode
                     treeNode = {treeNode}
                     treeLevel = {0}
@@ -52,14 +54,16 @@ function DropdownTree(props: DropdownTreeProps) {
                 />
             </div>
 
-            <div style = {{
-                ...styles.sideDividerStyle,
-                maxWidth: 450,
-                minWidth: 400
-            }}>
-                {detailedNode &&
+            <div
+                style = {{
+                    ...styles.sideDividerStyle,
+                    maxWidth: 450,
+                    minWidth: 400
+                }}
+            >
+                {detailedNode && (
                     <DropdownNodeDetails treeNode = {detailedNode} />
-                }
+                )}
             </div>
         </div>
     );

@@ -71,33 +71,33 @@ function DropdownNode(props: DropdownNodeProps) {
                 }}
             >
                 <div style = {styles.dropdownArrowStyle}>
-                    {!ifCollapsible &&
+                    {!ifCollapsible && (
                         <Icon
                             name = {NON_COLLAPSIBLE_ICON}
                             size = {SMALL_ICON}
                             color = {treeNode.errorNode ? WARNING_COLOR : DEFAULT_DROPDOWN_COLOR}
                         />
-                    }
+                    )}
 
-                    {ifCollapsible && isCollapsed &&
+                    {ifCollapsible && isCollapsed && (
                         <Icon
                             name = {COLLAPSED_ARROW_ICON}
                             size = {LARGE_ICON}
                             color = {treeNode.errorNode ? WARNING_COLOR : DEFAULT_DROPDOWN_COLOR}
-                            onClick = {ifCollapsible ? () => onCollapseTree(treeNode.nodeID, false)
-                                : () => {}}
+                            onClick = {ifCollapsible ? (() => onCollapseTree(treeNode.nodeID, false))
+                                : (() => {})}
                         />
-                    }
+                    )}
 
-                    {ifCollapsible && !isCollapsed &&
+                    {ifCollapsible && !isCollapsed && (
                         <Icon
                             name = {COLLAPSIBLE_ARROW_ICON}
                             size = {LARGE_ICON}
                             color = {treeNode.errorNode ? WARNING_COLOR : DEFAULT_DROPDOWN_COLOR}
-                            onClick = {ifCollapsible ? () => onCollapseTree(treeNode.nodeID, false)
-                                : () => {}}
+                            onClick = {ifCollapsible ? (() => onCollapseTree(treeNode.nodeID, false))
+                                : (() => {})}
                         />
-                    }
+                    )}
                 </div>
 
                 <div
@@ -110,23 +110,25 @@ function DropdownNode(props: DropdownNodeProps) {
                 >
                     {treeNode.value.length > 25 ? treeNode.kind : treeNode.value}
 
-                    {ifCollapsible && !treeNode.didCollapse && treeNode.diagnostics &&
-                        treeNode.diagnostics.length > 0 &&
+                    {ifCollapsible && !treeNode.didCollapse && treeNode.diagnostics
+                        && treeNode.diagnostics.length > 0 && (
                             <div style = {styles.iconStyle}>
                                 <Icon
                                     name = {DROPDOWN_WARNING_ICON}
                                     color = {WARNING_COLOR}
                                 />
                             </div>
-                    }
+                    )}
                 </div>
 
-                <div style = {{
-                    ...styles.iconStyle,
-                    cursor: "pointer",
-                    marginRight: 4
-                }}>
-                    {hoverStatus && treeNode.position &&
+                <div
+                    style = {{
+                        ...styles.iconStyle,
+                        cursor: "pointer",
+                        marginRight: 4
+                    }}
+                >
+                    {hoverStatus && treeNode.position && (
                         <Icon
                             name = {DROPDOWN_LOCATE_ICON}
                             circular
@@ -135,25 +137,23 @@ function DropdownNode(props: DropdownNodeProps) {
                             size = {SMALL_ICON}
                             onClick = {() => { onFindNode(treeNode.position); }}
                         />
-                    }
+                    )}
                 </div>
             </div>
 
-            {ifCollapsible && isCollapsed &&
-                treeNode.children.map((item, id) => {
-                    const level = treeLevel + 1;
-
-                    return <DropdownNode
-                                key = {id}
-                                treeNode = {item}
-                                treeLevel = {level}
-                                detailedNode = {detailedNode}
-                                onClick = {onClick}
-                                onCollapseTree = {onCollapseTree}
-                                onFindNode = {onFindNode}
-                            />;
-                })
-            }
+            {ifCollapsible && isCollapsed && (
+                treeNode.children.map((item, id) => (
+                    <DropdownNode
+                        key = {id}
+                        treeNode = {item}
+                        treeLevel = {treeLevel + 1}
+                        detailedNode = {detailedNode}
+                        onClick = {onClick}
+                        onCollapseTree = {onCollapseTree}
+                        onFindNode = {onFindNode}
+                    />
+                ))
+            )}
         </div>
     );
 }

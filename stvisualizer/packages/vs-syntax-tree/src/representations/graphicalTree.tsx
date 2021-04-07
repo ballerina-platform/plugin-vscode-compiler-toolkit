@@ -34,18 +34,18 @@ function GraphicalTree(props: GraphicalTreeProps) {
 
     return (
         <div>
-            {treeGraph &&
+            {treeGraph && (
                 <div>
                 {
-                    treeGraph.children.map((item, id) => {
-                        return <TreeNode
-                                    key = {id}
-                                    node = {item}
-                                    isLocateAction = {isLocateAction}
-                                    onFindNode = {() => onFindNode(item.position)}
-                                    onCollapseTree = {() => onCollapseTree(item.id, true)}
-                                />;
-                    })
+                    treeGraph.children.map((item, id) => (
+                        <TreeNode
+                            key = {id}
+                            node = {item}
+                            isLocateAction = {isLocateAction}
+                            onFindNode = {() => onFindNode(item.position)}
+                            onCollapseTree = {() => onCollapseTree(item.id, true)}
+                        />
+                    ))
                 }
 
                     <svg
@@ -53,17 +53,17 @@ function GraphicalTree(props: GraphicalTreeProps) {
                         height = {treeGraph.height}
                     >
                         {
-                            treeGraph.edges.map((item, id) => {
-                                return <TreeNodeEdge
-                                            key = {id}
-                                            edge = {item}
-                                            isLocateAction = {isLocateAction}
-                                        />;
-                            })
+                            treeGraph.edges.map((item, id) => (
+                                <TreeNodeEdge
+                                    key = {id}
+                                    edge = {item}
+                                    isLocateAction = {isLocateAction}
+                                />
+                            ))
                         }
                     </svg>
                 </div>
-            }
+            )}
         </div>
     );
 }

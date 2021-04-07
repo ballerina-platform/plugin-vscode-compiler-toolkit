@@ -29,7 +29,7 @@ function Diagnostics(props: GraphicalDetailsProps) {
     const [isBottomNode, setIsBottomNode] = useState(false);
 
     useEffect(() => {
-        if (node.x + 400 > window.innerWidth) {
+        if (node.x + 350 > window.innerWidth) {
             setIsEdgeNode(true);
         }
 
@@ -60,11 +60,11 @@ function Diagnostics(props: GraphicalDetailsProps) {
                 }}
             >
                 <p> <b>This block contains :</b></p> <hr/>
-                {node.diagnostics.map((item, id) => {
-                        return <p key = {id}>
-                                   {item.message}
-                               </p>;
-                    })
+                {node.diagnostics.map((item, id) => (
+                        <p key = {id}>
+                            {item.message}
+                        </p>
+                    ))
                 }
             </div>
         </div>

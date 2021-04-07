@@ -25,7 +25,8 @@ function DropdownDetails(props: DetailsCardProp) {
     const {title, value} = props;
 
     return (
-        <div style = {{
+        <div
+            style = {{
                 ...styles.detailsCardStyle,
                 minHeight: 45
             }}

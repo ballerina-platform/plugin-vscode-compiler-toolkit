@@ -33,7 +33,7 @@ function NodeDetails(props: GraphicalDetailsProps) {
             setIsEdgeNode(true);
         }
 
-        if (node.y + 350 > window.innerHeight) {
+        if (node.y + 300 > window.innerHeight) {
             setIsBottomNode(true);
         }
     }, []);
@@ -41,11 +41,13 @@ function NodeDetails(props: GraphicalDetailsProps) {
     const mapMinutiae = (minutiaeArray: Minutiae[]) => {
         return minutiaeArray.map((item, id) => {
             if (!item.isInvalid) {
-                return <p key = {id}>
+                return (
+                    <p key = {id}>
                         {item.kind}
-                    </p>;
+                    </p>
+                );
             } else {
-                return ;
+                return;
             }
         });
     };
@@ -73,7 +75,7 @@ function NodeDetails(props: GraphicalDetailsProps) {
             >
                 <p> <b>{NODE_KIND} :</b>  {node.kind}</p><hr/>
 
-                {node.position &&
+                {node.position && (
                     <div>
                         <p> <b>Position :</b>
                             {" (" + (node.position.startLine + 1) + ", "
@@ -83,22 +85,22 @@ function NodeDetails(props: GraphicalDetailsProps) {
                             }
                         </p> <hr/>
                     </div>
-                }
+                )}
 
                 <p style = {styles.titleFontStyle}>
                     {LEADING_MINUTIAE}
                 </p>
-                {node.leadingMinutiae && node.leadingMinutiae.length  > 0 &&
+                {node.leadingMinutiae && node.leadingMinutiae.length  > 0 && (
                     mapMinutiae(node.leadingMinutiae)
-                }
+                )}
                 {(!node.leadingMinutiae || node.leadingMinutiae.length < 1) && <p> {NONE} </p>} <hr/>
 
                 <p style = {styles.titleFontStyle}>
                     {TRAILING_MINUTIAE}
                 </p>
-                {node.trailingMinutiae && node.trailingMinutiae.length > 0 &&
+                {node.trailingMinutiae && node.trailingMinutiae.length > 0 && (
                     mapMinutiae(node.trailingMinutiae)
-                }
+                )}
                 {(!node.trailingMinutiae || node.trailingMinutiae.length < 1) && <p> {NONE} </p>}
             </div>
         </div>
