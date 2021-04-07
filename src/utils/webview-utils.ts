@@ -91,32 +91,32 @@ export function getLibraryWebViewContent(options: WebViewOptions) {
         `;
 }
 
-export function getComposerURI(): string {
+export function getSTVisualizerURI(): string {
     return getVSCodeResourceURI(join((ballerinaExtInstance.context as ExtensionContext).extensionPath, "resources", "jslibs"));
 }
 
-export function getComposerPath(): string {
-    return process.env.COMPOSERDEBUG === "true"
-        ? process.env.COMPOSERDEV_HOST as string
-        : getComposerURI();
+export function getSTVisualizerPath(): string {
+    return process.env.STVISUALIZER_DEBUG === "true"
+        ? process.env.STVISUALIZER_DEV_HOST as string
+        : getSTVisualizerURI();
 }
 
-export function getComposerJSFiles(): string[] {
+export function getSTVisualizerJSFiles(): string[] {
     return [
-        join(getComposerPath(), "composer.js"),
-        process.env.COMPOSERDEBUG === "true" ? "http://localhost:8097" : "" // For React Dev Tools
+        join(getSTVisualizerPath(), "stvisualizer.js"),
+        process.env.STVISUALIZER_DEBUG === "true" ? "http://localhost:8097" : "" // For React Dev Tools
     ];
 }
 
-export function getComposerCSSFiles(): string[] {
+export function getSTVisualizerCSSFiles(): string[] {
     return [
-        join(getComposerPath(), "themes", "ballerina-default.min.css")
+        join(getSTVisualizerPath(), "themes", "ballerina-default.min.css")
     ];
 }
 
-export function getComposerWebViewOptions(): Partial<WebViewOptions> {
+export function getSTVisualizerWebViewOptions(): Partial<WebViewOptions> {
     return {
-        jsFiles: getComposerJSFiles(),
-        cssFiles: getComposerCSSFiles()
+        jsFiles: getSTVisualizerJSFiles(),
+        cssFiles: getSTVisualizerCSSFiles()
     };
 }

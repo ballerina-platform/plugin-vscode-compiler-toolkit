@@ -9,6 +9,6 @@
 
 rootProject.name = 'plugin-vscode-compiler-toolkit'
 
-include(':composer')
+include('stvisualizer')
 
-project(':composer').projectDir = file('composer')
+project(':stvisualizer').projectDir = file('stvisualizer')

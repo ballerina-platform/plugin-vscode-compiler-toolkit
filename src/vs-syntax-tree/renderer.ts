@@ -17,7 +17,7 @@
  * under the License.
  *
  */
-import { getComposerWebViewOptions, getLibraryWebViewContent, WebViewOptions } from "../utils";
+import { getSTVisualizerWebViewOptions, getLibraryWebViewContent, WebViewOptions } from "../utils";
 import { FETCH_FULL_TREE_METHOD,
          FETCH_LOCATE_TREE_METHOD,
          FETCH_SUB_TREE_METHOD,
@@ -110,7 +110,7 @@ export function render(sourceRoot: string, blockRange: any, activatedCommand: st
 
             function switchFullTree(){
                 activatedCommand = ${JSON.stringify(FULL_TREE_VIEW)};
-                ballerinaComposer.renderSyntaxTree(activatedCommand, findNode, collapseTree, renderFullTree, switchFullTree, document.getElementById("treeBody"));
+                ballerinaSTVisualizer.renderSyntaxTree(activatedCommand, findNode, collapseTree, renderFullTree, switchFullTree, document.getElementById("treeBody"));
             }
 
             function collapseNodes(){
@@ -124,11 +124,11 @@ export function render(sourceRoot: string, blockRange: any, activatedCommand: st
             function collapseTree(nodeID, representationType){
                 collapsedNode = nodeID;
                 isGraphical = representationType;
-                ballerinaComposer.renderSyntaxTree(activatedCommand, findNode, collapseTree, collapseNodes, switchFullTree, document.getElementById("treeBody"));
+                ballerinaSTVisualizer.renderSyntaxTree(activatedCommand, findNode, collapseTree, collapseNodes, switchFullTree, document.getElementById("treeBody"));
             }
 
             function initiateRendering(){
-                ballerinaComposer.renderSyntaxTree(activatedCommand, findNode, collapseTree, renderTree, switchFullTree, document.getElementById("treeBody"));
+                ballerinaSTVisualizer.renderSyntaxTree(activatedCommand, findNode, collapseTree, renderTree, switchFullTree, document.getElementById("treeBody"));
             }
 
             initiateRendering();
@@ -136,7 +136,7 @@ export function render(sourceRoot: string, blockRange: any, activatedCommand: st
     `;
 
     const webViewOptions: WebViewOptions = {
-        ...getComposerWebViewOptions(),
+        ...getSTVisualizerWebViewOptions(),
         body, scripts, styles, bodyCss
     };
 

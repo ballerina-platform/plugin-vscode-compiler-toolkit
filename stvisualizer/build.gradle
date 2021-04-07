@@ -20,10 +20,10 @@ import org.apache.tools.ant.taskdefs.condition.Os
 apply from: "$rootDir/gradle/jsProject.gradle"
 
 configurations {
-    composer
+    stvisualizer
 }
 
-task composerBuild {
+task stVisualizerBuild {
     dependsOn 'updateVersion'
     dependsOn 'updateLernaVersion'
     PatternSet patternSet = new PatternSet();
@@ -48,7 +48,7 @@ task composerBuild {
         copy {
             from './packages/distribution/build'
             into './../resources/jslibs'
-            include 'composer.js'
+            include 'stvisualizer.js'
             include 'themes/**'
         }
     }
@@ -73,7 +73,7 @@ task updateLernaVersion(type: Exec) {
     }
 }
 
-task testComposer() {
+task testSTVisualizer() {
     onlyIf {
         !assemble.state.upToDate
     }
@@ -88,8 +88,8 @@ task testComposer() {
     }
 }
 
-artifacts.add('composer', file("packages/distribution/build/"))
+artifacts.add('stvisualizer', file("packages/distribution/build/"))
 
 check {
-    dependsOn testComposer
+    dependsOn testSTVisualizer
 }

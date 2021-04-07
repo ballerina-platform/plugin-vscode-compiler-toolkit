@@ -58,7 +58,7 @@ function getScript(name: string): string {
 function getCommand(command: string, pkgName: string): any {
     return {
         command,
-        describe: command + " composer pkg " + pkgName,
+        describe: command + " stvisualizer pkg " + pkgName,
         handler: async () => {
             let exitCode = 0;
             try {

@@ -6,12 +6,12 @@ src/
 target/
 docs/
 extractedDistribution/
-resources/composer
+resources/stvisualizer
 .gitignore
 tsconfig.json
 tslint.json
 webpack.config.js
-composer/
+stvisualizer/
 coverage/
 gradle/
 gradle.properties

@@ -6,11 +6,11 @@
   "scripts": {
     "prepublishOnly": "npm run build",
     "prebuild": "npm run clean",
-    "clean": "composer pkg:clean",
-    "build": "composer pkg:build"
+    "clean": "stvisualizer pkg:clean",
+    "build": "stvisualizer pkg:build"
   },
   "devDependencies": {
-    "@ballerina/composer-cli": "^2.0.0-Alpha-SNAPSHOT"
+    "@ballerina/stvisualizer-cli": "^2.0.0-Alpha-SNAPSHOT"
   },
   "author": "ballerina.io",
   "license": "ISC"

@@ -4,12 +4,12 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
-        composer: './src/index.ts',
+        stvisualizer: './src/index.ts',
     },
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: '[name].js',
-        library: 'ballerinaComposer',
+        library: 'ballerinaSTVisualizer',
         libraryTarget: 'umd'
     },
     resolve: {

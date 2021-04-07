@@ -13,10 +13,9 @@
             "--extensionDevelopmentPath=${workspaceFolder}"
         ],
         "env": {
-            "LSEXTENSIONS_PATH":  "",
             "SERVER_DEBUG": "false",
-            "COMPOSERDEBUG": "false",
-            "COMPOSERDEV_HOST": "http://localhost:9000"
+            "STVISUALIZER_DEBUG": "false",
+            "STVISUALIZER_DEV_HOST": "http://localhost:9000"
         },
         "outFiles": [
             "${workspaceFolder}/dist/**/*.js"
@@ -29,9 +28,8 @@
         "request": "launch",
         "runtimeExecutable": "${execPath}",
         "env": {
-            "LSEXTENSIONS_PATH":  "",
             "SERVER_DEBUG": "false",
-            "COMPOSERDEBUG": "false"
+            "STVISUALIZER_DEBUG": "false"
         },
         "args": [
             "--extensionDevelopmentPath=${workspaceFolder}",

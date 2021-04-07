@@ -5,7 +5,7 @@
   "keywords": [
     "ballerina",
     "ballerina-lang",
-    "composer",
+    "stvisualizer",
     "theme"
   ],
   "main": "src/index.js",

@@ -1,24 +1,23 @@
 {
   "name": "@ballerina/distribution",
   "version": "2.0.0-Alpha-SNAPSHOT",
-  "description": "",
-  "main": "build/composer.js",
+  "author": "ballerina.io",
+  "license": "Apache-2.0",
+  "main": "build/stvisualizer.js",
   "scripts": {
-    "clean": "composer pkg:clean",
-    "lint": "composer pkg:lint",
+    "clean": "stvisualizer pkg:clean",
+    "lint": "stvisualizer pkg:lint",
     "prebuild": "npm run clean && npm run lint",
     "test": "echo \"Error: no test specified\"",
     "test-coverage": "echo \"Error: no test specified\"",
-    "build": "composer pkg:build:webpack",
-    "watch": "composer pkg:watch:webpack"
+    "build": "stvisualizer pkg:build:webpack",
+    "watch": "stvisualizer pkg:watch:webpack"
   },
-  "author": "ballerina.io",
-  "license": "Apache-2.0",
   "dependencies": {
     "@ballerina/theme": "^2.0.0-Alpha-SNAPSHOT",
     "@ballerina/visualize-syntax-tree": "^2.0.0-Alpha-SNAPSHOT"
   },
   "devDependencies": {
-    "@ballerina/composer-cli": "^2.0.0-Alpha-SNAPSHOT"
+    "@ballerina/stvisualizer-cli": "^2.0.0-Alpha-SNAPSHOT"
   }
 }
