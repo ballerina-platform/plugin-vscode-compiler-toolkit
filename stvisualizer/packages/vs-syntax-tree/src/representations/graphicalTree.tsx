@@ -36,8 +36,7 @@ function GraphicalTree(props: GraphicalTreeProps) {
         <div>
             {treeGraph && (
                 <div>
-                {
-                    treeGraph.children.map((item, id) => (
+                    {treeGraph.children.map((item, id) => (
                         <TreeNode
                             key = {id}
                             node = {item}
@@ -45,22 +44,19 @@ function GraphicalTree(props: GraphicalTreeProps) {
                             onFindNode = {() => onFindNode(item.position)}
                             onCollapseTree = {() => onCollapseTree(item.id, true)}
                         />
-                    ))
-                }
+                    ))}
 
                     <svg
                         width = {treeGraph.width}
                         height = {treeGraph.height}
                     >
-                        {
-                            treeGraph.edges.map((item, id) => (
-                                <TreeNodeEdge
-                                    key = {id}
-                                    edge = {item}
-                                    isLocateAction = {isLocateAction}
-                                />
-                            ))
-                        }
+                        {treeGraph.edges.map((item, id) => (
+                            <TreeNodeEdge
+                                key = {id}
+                                edge = {item}
+                                isLocateAction = {isLocateAction}
+                            />
+                        ))}
                     </svg>
                 </div>
             )}

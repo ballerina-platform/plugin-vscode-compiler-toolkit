@@ -60,12 +60,12 @@ function Diagnostics(props: GraphicalDetailsProps) {
                 }}
             >
                 <p> <b>This block contains :</b></p> <hr/>
+
                 {node.diagnostics.map((item, id) => (
-                        <p key = {id}>
-                            {item.message}
-                        </p>
-                    ))
-                }
+                    <p key = {id}>
+                        {item.message}
+                    </p>
+                ))}
             </div>
         </div>
     );
