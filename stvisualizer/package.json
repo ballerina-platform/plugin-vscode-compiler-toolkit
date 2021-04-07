@@ -3,6 +3,8 @@
     "name": "@ballerina/stvisualizer",
     "version": "2.0.0-Alpha-SNAPSHOT",
     "description": "",
+    "author": "ballerina.io",
+    "license": "Apache-2.0",
     "scripts": {
         "prebuild": "npm i && lerna bootstrap",
         "test": "lerna run test --stream -- -- --coverage",
@@ -14,8 +16,6 @@
         "bump-version": "lerna version --no-git-tag-version",
         "update-version": "node ./scripts/update-version.js"
     },
-    "author": "ballerina.io",
-    "license": "Apache-2.0",
     "dependencies": {
         "@types/classnames": "^2.2.6",
         "classnames": "^2.2.6",
