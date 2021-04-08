@@ -1,7 +1,4 @@
 "use strict";
-
-import { BAL_HOME } from "./preferences";
-
 /**
  * Copyright (c) 2021, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
@@ -20,6 +17,8 @@ import { BAL_HOME } from "./preferences";
  * under the License.
  *
  */
+import { BAL_HOME } from "./preferences";
+
 export const INVALID_HOME_MSG: string = "Ballerina Home is invalid, please check `" + BAL_HOME + "` in settings";
 export const INSTALL_BALLERINA: string = "Unable to auto detect ballerina in your environment. If you just installed Ballerina, you may need to restart VSCode." +
     " If not, please install Ballerina or configure `" + BAL_HOME + "` in settings.";

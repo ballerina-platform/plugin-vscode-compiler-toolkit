@@ -28,11 +28,10 @@ let nodeCount: number = -1;
 /**
  * Recursively maps the syntax tree JSON object to a tree object that includes
  * the parent-child relationship all the nodes that need to be rendered
- * @param nodeObj - the tree object 
+ * @param nodeObj - the tree object
  * @param parentObj - the parent of the parsed tree object
  * @param treeLevel - the level of the tree
  * @param foundNodeBlock - the node block to handle the path highlighting for the locate mode
- * @returns 
  */
 export function mapSyntaxTree(nodeObj: JSON, parentObj: TreeNode | any, treeLevel: number, foundNodeBlock: boolean) {
     for (const props in nodeObj) {

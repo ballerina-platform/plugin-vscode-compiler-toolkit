@@ -20,7 +20,7 @@
 
 import { AssertionError } from "assert";
 import { exec, spawnSync } from "child_process";
-import * as path from "path";
+import { join, sep } from "path";
 import {
     commands, ConfigurationChangeEvent, Extension, ExtensionContext,
     extensions, OutputChannel, Uri, window, workspace
@@ -198,7 +198,7 @@ export class BallerinaExtension {
         // otherwise use wrapper command
         let distPath = "";
         if (overrideBallerinaHome) {
-            distPath = path.join(ballerinaHome, "bin") + path.sep;
+            distPath = join(ballerinaHome, "bin") + sep;
         }
         let exeExtension = "";
         if (process.platform === "win32") {

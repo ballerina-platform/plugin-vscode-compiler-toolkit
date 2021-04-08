@@ -17,24 +17,17 @@
  * under the License.
  *
  */
-import * as path from "path";
+import { join, sep } from "path";
 import { Executable, ExecutableOptions } from "vscode-languageclient";
 import { debug } from "../utils/logger";
 
 export function getServerOptions(ballerinaCmd: string): Executable {
     debug(`Using Ballerina CLI command '${ballerinaCmd}' for Language server.`);
-    const cmd = ballerinaCmd;
+    const cmd = process.platform === "win32" ? getConvertedPath(ballerinaCmd) : ballerinaCmd;
     const args = ["start-language-server"];
-
     const opt: ExecutableOptions = {};
     opt.env = {...process.env};
-    if (process.env.LSEXTENSIONS_PATH !== "") {
-        if (opt.env.BALLERINA_CLASSPATH_EXT) {
-            opt.env.BALLERINA_CLASSPATH_EXT += path.delimiter + process.env.LSEXTENSIONS_PATH;
-        } else {
-            opt.env.BALLERINA_CLASSPATH_EXT = process.env.LSEXTENSIONS_PATH;
-        }
-    }
+
     if (process.env.SERVER_DEBUG === "true") {
         debug("Language Server is starting in debug mode.");
         const debugPort = 5005;
@@ -51,4 +44,11 @@ export function getServerOptions(ballerinaCmd: string): Executable {
         args,
         options: opt
     };
+}
+
+function getConvertedPath(ballerinaCmd: string): string {
+    let paths = ballerinaCmd.split(sep);
+    paths = paths.map((path) => path.startsWith("\"") && path.endsWith("\"") ?
+        path.substring(1, path.length - 1) : path);
+    return join.apply(null, paths);
 }
