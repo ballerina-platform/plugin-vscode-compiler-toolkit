@@ -3,7 +3,7 @@ name: Build with tests
 
 on:
     pull_request:
-        branches: [master]
+        branches: [main]
     schedule:
       - cron:  '0 0 * * *'
 
