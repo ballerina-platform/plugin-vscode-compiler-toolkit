@@ -56,8 +56,6 @@ task assemble(overwrite: true) {
 }
 
 task test(type: Exec) {
-    // mustRunAfter ':examples-test:test'
-    // dependsOn copyDistribution
     dependsOn assemble
     doFirst {
         if (Os.isFamily(Os.FAMILY_WINDOWS)) {
