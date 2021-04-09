@@ -33,31 +33,27 @@ function DropdownArrayDetails(props: DetailsArrayCardProp) {
 
             {value && (
                 <div style = {styles.detailsArrayValueBlock}>
-                    {value.map((item, id) => {
-                        if (type === MINUTIAE) {
-                            if (!item.isInvalid) {
-                                return (
-                                    <div
-                                        key = {id}
-                                        style = {styles.detailsCardValueStyle}
-                                    >
-                                        - {item.kind}
-                                    </div>
-                                );
-                            } else {
-                                return;
-                            }
-                        } else {
-                            return (
+                    {value.map((item, id) => (
+                        <>
+                            {type === MINUTIAE && !item.isInvalid && (
+                                <div
+                                    key = {id}
+                                    style = {styles.detailsCardValueStyle}
+                                >
+                                    - {item.kind}
+                                </div>
+                            )}
+
+                            {type !== MINUTIAE && (
                                 <div
                                     key = {id}
                                     style = {styles.detailsCardValueStyle}
                                 >
                                     - {item.message}
                                 </div>
-                            );
-                        }
-                    })}
+                            )}
+                        </>
+                    ))}
                 </div>
             )}
         </div>

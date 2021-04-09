@@ -16,8 +16,8 @@ export interface TreeNodeObject {
     didCollapse: boolean;
     ifParent: boolean;
     children: TreeNodeObject[];
-    leadingMinutiae: any[];
-    trailingMinutiae: any[];
+    leadingMinutiae: Minutiae[];
+    trailingMinutiae: Minutiae[];
     errorNode?: any;
     diagnostics: any[];
     position: Position;

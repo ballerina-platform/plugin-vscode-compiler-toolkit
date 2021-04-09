@@ -90,10 +90,14 @@ function NodeDetails(props: GraphicalDetailsProps) {
                 <p style = {styles.titleFontStyle}>
                     {LEADING_MINUTIAE}
                 </p>
-                {node.leadingMinutiae && node.leadingMinutiae.length  > 0 && (
-                    mapMinutiae(node.leadingMinutiae)
+                {(node.leadingMinutiae && node.leadingMinutiae.length > 0 &&
+                    !(node.leadingMinutiae.length === 1 && node.leadingMinutiae[0].isInvalid)) && (
+                        mapMinutiae(node.leadingMinutiae)
                 )}
-                {(!node.leadingMinutiae || node.leadingMinutiae.length < 1) && <p> {NONE} </p>} <hr/>
+                {(!node.leadingMinutiae || node.leadingMinutiae.length < 1 ||
+                    (node.leadingMinutiae.length === 1 && node.leadingMinutiae[0].isInvalid)) &&
+                        <p> {NONE} </p>
+                } <hr/>
 
                 <p style = {styles.titleFontStyle}>
                     {TRAILING_MINUTIAE}

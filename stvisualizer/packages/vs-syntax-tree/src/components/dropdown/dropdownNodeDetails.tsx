@@ -70,19 +70,21 @@ function DropdownNodeDetails(props: DropdownDetailsProps) {
                         </div>
                     )}
 
-                    {treeNode.leadingMinutiae && treeNode.leadingMinutiae.length > 0 && (
-                        <DropdownArrayDetails
-                            title = {LEADING_MINUTIAE}
-                            type = {MINUTIAE}
-                            value = {treeNode.leadingMinutiae}
-                        />
+                    {(treeNode.leadingMinutiae && treeNode.leadingMinutiae.length > 0
+                        && !(treeNode.leadingMinutiae.length === 1 && treeNode.leadingMinutiae[0].isInvalid)) && (
+                            <DropdownArrayDetails
+                                title = {LEADING_MINUTIAE}
+                                type = {MINUTIAE}
+                                value = {treeNode.leadingMinutiae}
+                            />
                     )}
 
-                    {(!treeNode.leadingMinutiae || treeNode.leadingMinutiae.length < 1) && (
-                        <DropdownDetails
-                            title = {LEADING_MINUTIAE}
-                            value = {NONE}
-                        />
+                    {(!treeNode.leadingMinutiae || treeNode.leadingMinutiae.length < 1 ||
+                        (treeNode.leadingMinutiae.length === 1 && treeNode.leadingMinutiae[0].isInvalid)) && (
+                            <DropdownDetails
+                                title = {LEADING_MINUTIAE}
+                                value = {NONE}
+                            />
                     )}
 
                     {treeNode.trailingMinutiae && treeNode.trailingMinutiae.length > 0 && (
@@ -94,10 +96,10 @@ function DropdownNodeDetails(props: DropdownDetailsProps) {
                     )}
 
                     {(!treeNode.trailingMinutiae || treeNode.trailingMinutiae.length < 1) && (
-                        <DropdownDetails
-                            title = {TRAILING_MINUTIAE}
-                            value = {NONE}
-                        />
+                            <DropdownDetails
+                                title = {TRAILING_MINUTIAE}
+                                value = {NONE}
+                            />
                     )}
 
                     {treeNode.diagnostics && treeNode.diagnostics.length > 0 && (
