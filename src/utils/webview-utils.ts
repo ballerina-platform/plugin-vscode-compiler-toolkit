@@ -103,7 +103,6 @@ export function getLibraryWebViewContent(options: WebViewOptions) {
                 </script>
                 <script charset="UTF-8" src="${nodeModulesRoot}/mousetrap/mousetrap.min.js"></script>
                 <script charset="UTF-8" src="${resourceRoot}/utils/messaging.js"></script>
-                <script charset="UTF-8" src="${resourceRoot}/utils/undo-redo.js"></script>
                 ${externalScripts}
             </body>
             </html>
