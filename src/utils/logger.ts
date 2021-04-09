@@ -29,7 +29,7 @@ function withNewLine(value: string) {
     return value;
 }
 
-// This function will log the value to the Ballerina output channel only if debug log is enabled
+// This function will log the value to the Ballerina compiler toolkit output channel only if debug log is enabled
 export function debug(value: string) : void {
     const output = withNewLine(value);
     console.log(output);
@@ -38,7 +38,7 @@ export function debug(value: string) : void {
     }
 }
 
-// This function will log the value to the Ballerina output channel
+// This function will log the value to the Ballerina compiler toolkit output channel
 export function log(value: string): void {
     const output = withNewLine(value);
     console.log(output);
