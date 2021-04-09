@@ -41,7 +41,7 @@ npmBuild() {
     outputs.cacheIf { true } 
 
     exec { commandLine 'git', 'submodule', 'update', '--init', '--recursive' }
-    exec { commandLine 'git', 'submodule', 'foreach', 'git', 'pull', 'origin', 'master' }
+    exec { commandLine 'git', 'submodule', 'foreach', 'git', 'pull', 'origin', 'main' }
 
     doFirst {
         exec {
