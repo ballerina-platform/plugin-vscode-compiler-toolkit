@@ -1,0 +1,17 @@
+{
+  "name": "@ballerina/visualize-syntax-tree",
+  "version": "2.0.0-Alpha-SNAPSHOT",
+  "description": "Renders a syntax tree for .bal source files",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "prebuild": "npm run clean",
+    "clean": "stvisualizer pkg:clean",
+    "build": "stvisualizer pkg:build"
+  },
+  "devDependencies": {
+    "@ballerina/stvisualizer-cli": "^2.0.0-Alpha-SNAPSHOT"
+  },
+  "author": "ballerina.io",
+  "license": "ISC"
+}

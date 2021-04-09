@@ -1,0 +1,36 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "outDir": "out",
+        "lib": [
+            "es6"
+        ],
+        "sourceMap": true,
+        "rootDirs": [
+            "src",
+            "test"
+        ],
+        /* Strict Type-Checking Option */
+        "strict": true, /* enable all strict type-checking options */
+        /* Additional Checks */
+        "noUnusedLocals": true,
+        "baseUrl": ".",
+        "paths": {},
+        "jsx": "react",
+        "noImplicitAny": false,
+        "declaration": true,
+        "moduleResolution": "node",
+        "skipLibCheck": true
+    },
+    "exclude": [
+        "node_modules",
+        ".vscode-test",
+        "target",
+        "extractedDistribution"
+    ],
+    "include": [
+        "src",
+        "test"
+    ]
+}
