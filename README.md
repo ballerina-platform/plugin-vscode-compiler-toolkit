@@ -1,5 +1,7 @@
 # The Ballerina Compiler Toolkit
 
+This toolkit only provides additional tooling support for Ballerina developers. In order to experience language intelligence and other core features, install the Ballerina plugin. Checkout [ballerina.io](https://ballerina.io/) for details.
+
 ## Building the Extension
 > Building with Tests
 * If you want to build the VSIX of the extension with the tests, you need to:
