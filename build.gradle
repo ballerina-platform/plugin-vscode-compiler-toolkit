@@ -24,21 +24,24 @@ configurations {
 }
 
 npmBuild() {
-    dependsOn ':stvisualizer:stVisualizerBuild'
-    PatternSet patternSet = new PatternSet();
-    patternSet.exclude("**/dist/**");
-	patternSet.exclude("**/out/**");
-    patternSet.exclude("**/*.vsix/**");
-    patternSet.exclude("**/coverage/**");
+    if (!Os.isFamily(Os.FAMILY_WINDOWS)) {
+        dependsOn ':stvisualizer:stVisualizerBuild'
+        PatternSet patternSet = new PatternSet();
+        patternSet.exclude("**/dist/**");
+        patternSet.exclude("**/out/**");
+        patternSet.exclude("**/*.vsix/**");
+        patternSet.exclude("**/coverage/**");
 
-    FileTree src = files('.').asFileTree;
-    inputs.files(src.matching(patternSet))
+        FileTree src = files('.').asFileTree;
+        inputs.files(src.matching(patternSet))
+    }    
 
     outputs.dir("out")
     outputs.dir("dist")
     outputs.cacheIf { true } 
 
     exec { commandLine 'git', 'submodule', 'update', '--init', '--recursive' }
+    exec { commandLine 'git', 'submodule', 'foreach', 'git', 'pull', 'origin', 'master' }
 
     doFirst {
         exec {
