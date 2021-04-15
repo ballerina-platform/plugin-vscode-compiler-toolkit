@@ -114,6 +114,22 @@ suite("Language Server Tests", function() {
         });
     });
 
+    test("Test syntaxApiCalls", function (done): void {
+        const uri = Uri.file(path.join(DATA_ROOT, 'hello_world.bal'));
+        commands.executeCommand('vscode.open', uri).then(() => {
+            langClient.onReady().then(() => {
+                langClient.getSyntaxApiCalls(uri).then((response) => {
+                    Promise.resolve(response);
+                    expect(response).to.contain.keys('source', 'code', 'parseSuccess');
+                    expect(response.code).to.contain("NodeFactory.createModulePartNode");
+                    done();
+                }, (reason) => {
+                    done(reason);
+                });
+            });
+        });
+    });
+
     test("Test Language Server Stop", (done) => {
         langClient.stop().then(() => {
             done();

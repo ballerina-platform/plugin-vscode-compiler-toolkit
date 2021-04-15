@@ -25,7 +25,8 @@
     ],
     "activationEvents": [
         "onLanguage:ballerina",
-        "onCommand:ballerinaCompilerToolkit.visualizeSyntaxTree"
+        "onCommand:ballerinaCompilerToolkit.visualizeSyntaxTree",
+        "onCommand:ballerinaCompilerToolkit.copySyntaxApiCalls"
     ],
     "contributes": {
         "languages": [
@@ -65,6 +66,11 @@
             {
                 "command": "ballerinaCompilerToolkit.visualizeSyntaxTree",
                 "title": "Syntax Tree Visualizer",
+                "category": "Ballerina Compiler Toolkit"
+            },
+            {
+                "command": "ballerinaCompilerToolkit.copySyntaxApiCalls",
+                "title": "Copy Syntax-API Calls to Generate this Code",
                 "category": "Ballerina Compiler Toolkit"
             }
         ]
