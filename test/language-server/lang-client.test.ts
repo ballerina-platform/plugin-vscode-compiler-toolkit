@@ -115,7 +115,7 @@ suite("Language Server Tests", function() {
     });
 
     test("Test syntaxApiCalls", function (done): void {
-        const uri = Uri.file(path.join(DATA_ROOT, 'hello_world.bal'));
+        const uri = Uri.file(path.join(DATA_ROOT, 'source3.bal'));
         commands.executeCommand('vscode.open', uri).then(() => {
             langClient.onReady().then(() => {
                 langClient.getSyntaxApiCalls(uri).then((response) => {
