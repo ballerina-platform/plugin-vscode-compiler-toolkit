@@ -19,7 +19,7 @@
  */
 import { expect } from "chai";
 import { fullResponseTree, locateResponseTree } from "../language-server/lang-client.test";
-import { mappedSyntaxTree } from "../resources/data/dataObjects";
+import { mappedSyntaxTree, mappedSyntaxTree_windows } from "../resources/data/dataObjects";
 import { retrieveGraph, updateSyntaxTree } from "../../src/vs-syntax-tree/tools/syntax-tree-generator";
 import { FULL_TREE_VIEW, LOCATE_TREE_VIEW } from "../../src/vs-syntax-tree/resources/constant-resources";
 
@@ -47,7 +47,7 @@ suite ("Syntax Tree Visualizer Tests", function () {
     test("Test updateSyntaxTree on locate tree mode", function (done): void {
       let mappedResponse: any = updateSyntaxTree("p40", false);
       expect(mappedResponse).to.contain.keys("treeGraph", "syntaxTreeObj");
-      expect(mappedResponse.syntaxTreeObj).to.eql(mappedSyntaxTree);
+      expect(mappedResponse.syntaxTreeObj).to.eql(process.platform === 'win32' ? mappedSyntaxTree_windows : mappedSyntaxTree);
       done();
     });
 });

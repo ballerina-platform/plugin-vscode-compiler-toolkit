@@ -58,4 +58,4 @@ jobs:
         - name: Build plugin with tests
           uses: GabrielBB/xvfb-action@v1.0
           with:
-            run: ./gradlew clean build -x test
+            run: ./gradlew clean build
