@@ -18,8 +18,8 @@
  *
  */
 
-import {Selection, Uri} from "vscode";
-import {LanguageClient} from "vscode-languageclient";
+import { Selection, Uri } from "vscode";
+import { LanguageClient } from "vscode-languageclient";
 
 export interface BallerinaSyntaxTree {
     kind: string;

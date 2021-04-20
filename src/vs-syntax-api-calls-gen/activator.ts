@@ -18,8 +18,8 @@
  *
  */
 import * as vscode from "vscode";
-import {BallerinaExtension, ExtendedLangClient} from "../core";
-import {COPY_SYNTAX_API_QUOTE_COMMAND} from "./resources/constant-resources";
+import { BallerinaExtension, ExtendedLangClient } from "../core";
+import { COPY_SYNTAX_API_QUOTE_COMMAND } from "./resources/constant-resources";
 
 /**
  * Activates the Ballerina Syntax API Quoter extension by
