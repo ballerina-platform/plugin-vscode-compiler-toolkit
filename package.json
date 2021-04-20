@@ -70,7 +70,7 @@
             },
             {
                 "command": "ballerinaCompilerToolkit.copySyntaxApiCalls",
-                "title": "Copy Syntax-API Calls to Generate this Code",
+                "title": "Copy Syntax API calls to Clipboard",
                 "category": "Ballerina Compiler Toolkit"
             }
         ]
