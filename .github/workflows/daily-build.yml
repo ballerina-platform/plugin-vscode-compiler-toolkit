@@ -22,13 +22,13 @@ jobs:
             - name: Download ballerina distribution
               uses: wei/wget@v1
               with:
-                args: http://dist-dev.ballerina.io/downloads/swan-lake-alpha4/ballerina-swan-lake-alpha4.zip
+                args: http://dist-dev.ballerina.io/downloads/swan-lake-alpha5/ballerina-swan-lake-alpha5.zip
             - run: mkdir extractedDistribution
             - name: Unzip ballerina distribution
               uses: TonyBogdanov/zip@1.0
               with:
-                args: unzip -qq ./ballerina-swan-lake-alpha4.zip -d ./extractedDistribution
-            - run: rm ballerina-swan-lake-alpha4.zip
+                args: unzip -qq ./ballerina-swan-lake-alpha5.zip -d ./extractedDistribution
+            - run: rm ballerina-swan-lake-alpha5.zip
             - run: npm ci
             - name: Build plugin with tests
               uses: GabrielBB/xvfb-action@v1.0
@@ -50,10 +50,10 @@ jobs:
             java-version: "11"
         - run: mkdir extractedDistribution
         - name: Download Ballerina distribution
-          run: Invoke-WebRequest -Uri http://dist-dev.ballerina.io/downloads/swan-lake-alpha4/ballerina-swan-lake-alpha4.zip -OutFile extractedDistribution\ballerina-swan-lake-alpha4.zip
+          run: Invoke-WebRequest -Uri http://dist-dev.ballerina.io/downloads/swan-lake-alpha5/ballerina-swan-lake-alpha5.zip -OutFile extractedDistribution\ballerina-swan-lake-alpha5.zip
         - name: Unzip Ballerina distribution
-          run: Expand-Archive -LiteralPath extractedDistribution\ballerina-swan-lake-alpha4.zip -DestinationPath extractedDistribution\
-        - run: rm extractedDistribution\ballerina-swan-lake-alpha4.zip
+          run: Expand-Archive -LiteralPath extractedDistribution\ballerina-swan-lake-alpha5.zip -DestinationPath extractedDistribution\
+        - run: rm extractedDistribution\ballerina-swan-lake-alpha5.zip
         - run: npm ci -f
         - name: Build plugin with tests
           uses: GabrielBB/xvfb-action@v1.0

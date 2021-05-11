@@ -46,8 +46,8 @@ suite("Ballerina Extension Core Tests", function () {
             if (detected.match(regex) && testBallerinaHome.match(regex)) {
                 let detectedLowerCase = detected.toLowerCase();
                 let balVersionLowerCase = testBallerinaVersion.toLowerCase();
-                assert.equal(detectedLowerCase.substring(detectedLowerCase.indexOf('lake') + 4).replace(/( |-)/g, ''),
-                    balVersionLowerCase.substring(balVersionLowerCase.indexOf('lake') + 4).replace(/( |-)/g, ''));
+                assert.equal(detectedLowerCase.substring(detectedLowerCase.indexOf('lake') + 5).replace(/( |-)/g, ''),
+                    balVersionLowerCase.substring(balVersionLowerCase.indexOf('lake') + 5).replace(/( |-)/g, ''));
             } else {
                 assert.equal(detected, testBallerinaVersion);
             }
