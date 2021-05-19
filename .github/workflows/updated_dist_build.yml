@@ -1,0 +1,66 @@
+# Test build against released Ballerina distribution
+name: Manual build with tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      bal_dist_version:
+        description: Version of Ballerina distribution
+        required: true
+        default: swan-lake-alpha5
+    branches: [main]
+
+jobs:
+  build_ubuntu:
+      runs-on: ubuntu-latest
+      steps:
+          - name: Checkout code
+            uses: actions/checkout@v2
+          - name: Setup node
+            uses: actions/setup-node@v1
+            with:
+                node-version: 12
+          - name: Install java 11
+            uses: actions/setup-java@v1
+            with:
+              java-version: "11"
+          - name: Download ballerina distribution
+            uses: wei/wget@v1
+            with:
+              args: http://dist-dev.ballerina.io/downloads/${{ github.event.inputs.bal_dist_version }}/ballerina-${{ github.event.inputs.bal_dist_version }}.zip
+          - run: mkdir extractedDistribution
+          - name: Unzip ballerina distribution
+            uses: TonyBogdanov/zip@1.0
+            with:
+              args: unzip -qq ./ballerina-${{ github.event.inputs.bal_dist_version }}.zip -d ./extractedDistribution
+          - run: rm ballerina-${{ github.event.inputs.bal_dist_version }}.zip
+          - run: npm ci
+          - name: Build plugin with tests
+            uses: GabrielBB/xvfb-action@v1.0
+            with:
+              run: ./gradlew clean build
+
+  build_windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build project
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install java 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: "11"
+      - run: mkdir extractedDistribution
+      - name: Download Ballerina distribution
+        run: Invoke-WebRequest -Uri http://dist-dev.ballerina.io/downloads/${{ github.event.inputs.bal_dist_version }}/ballerina-${{ github.event.inputs.bal_dist_version }}.zip -OutFile extractedDistribution\ballerina-${{ github.event.inputs.bal_dist_version }}.zip
+      - name: Unzip Ballerina distribution
+        run: Expand-Archive -LiteralPath extractedDistribution\ballerina-${{ github.event.inputs.bal_dist_version }}.zip -DestinationPath extractedDistribution\
+      - run: rm extractedDistribution\ballerina-${{ github.event.inputs.bal_dist_version }}.zip
+      - run: npm ci -f
+      - name: Build repository with tests
+        uses: GabrielBB/xvfb-action@v1.0
+        with:
+          run: ./gradlew clean build

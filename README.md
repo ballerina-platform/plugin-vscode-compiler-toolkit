@@ -6,7 +6,7 @@ This toolkit only provides additional tooling support for Ballerina developers. 
 > Building with Tests
 * If you want to build the VSIX of the extension with the tests, you need to:
     - Copy a released Ballerina distribution to a new "extractedDistribution" folder in the project root
-    - Note that the copied distribution has to be of a version later than SwanLake Alpha3
+    - Note that the copied distribution has to be of a version later than SwanLake Alpha4
     - Run a ```./gradlew build``` from the project root
 
 > Building without Tests
