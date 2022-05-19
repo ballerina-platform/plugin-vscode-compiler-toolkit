@@ -1,6 +1,10 @@
 # The Ballerina Compiler Toolkit
 
-This toolkit only provides additional tooling support for Ballerina developers. In order to experience language intelligence and other core features, install the Ballerina plugin. Checkout [ballerina.io](https://ballerina.io/) for details.
+This toolkit only provides additional tooling support for Ballerina compiler developers. 
+
+In order to experience language intelligence and other core features, install the [Ballerina plugin](https://marketplace.visualstudio.com/items?itemName=WSO2.ballerina).
+
+Checkout [ballerina.io](https://ballerina.io/) for more details.
 
 ## Building the Extension
 > Building with Tests
