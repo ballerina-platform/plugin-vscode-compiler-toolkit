@@ -1,7 +1,7 @@
 {
     "name": "ballerinacompilertoolkit",
     "displayName": "Ballerina Compiler Toolkit",
-    "description": "VSCode Compiler Tools for Ballerina",
+    "description": "Compiler Developer Tools for Ballerina",
     "version": "2.0.0-Alpha-SNAPSHOT",
     "publisher": "ballerina",
     "author": "ballerina.io",
