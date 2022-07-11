@@ -25,7 +25,6 @@ Follow the steps below to install the Ballerina extension.
 4. Open a Ballerina `.bal` file to activate the extension.
 
 ---
-## Functionalities
 
 ### Ballerina Syntax Tree Visualizer
 The compiler toolkit includes the capabilities to generate the syntax trees for any Ballerina source code, using which developers can retrieve a simplified representation of their code blocks for convenient analysis.
@@ -35,35 +34,46 @@ The compiler toolkit includes the capabilities to generate the syntax trees for 
 * Generate the subtree of the syntax tree for a particular block of code
 * Locate a particular piece of code on the complete syntax tree
 
-#### These tree representations can be viewed in two forms.
-* The Graphical Representation
-  ![Full Syntax Tree in Graphical Mode](docs/syntax-tree-visualizer/GraphicalTree.png)
-* The Dropdown Representation
-  ![Dropdown Syntax Tree in Dropdown Mode](docs/syntax-tree-visualizer/DropdownTree.png)
+<details>
+<summary> Representations </summary>
 
-#### Basic Usage
+##### 1. The Graphical Representation
+
+<img src="docs/syntax-tree-visualizer/GraphicalTree.jpeg" width="60%" >
+
+##### 2. The Dropdown Representation
+
+<img src="docs/syntax-tree-visualizer/DropdownTree.jpeg" width="60%">
+</details>
+
+<details>
+<summary> Basic Usage </summary>
 
 The command for the full syntax tree retrieval can be found on the Command Palette that can be viewed via `Ctrl + Shift + P` or (`Cmd + Shift + P` in macOS).
   ![Command Palette](docs/syntax-tree-visualizer/CommandPalette.gif)
 
 The sub syntax tree retrieval and locate code options can be found as Code Actions.
   ![Code Actions](docs/syntax-tree-visualizer/CodeActions.gif)
+</details>
 
-#### Features
+<details>
+<summary> Features </summary>
+
 The syntax trees rendered through the visualizer have muliple features available in both the graphical and dropdown representations.
 
-* View node details
+#### View node details
 
 ![Node Details](docs/syntax-tree-visualizer/NodeDetails.gif)
-* Track syntax diagnostics
+#### Track syntax diagnostics
 
 ![Syntax Diagnostics](docs/syntax-tree-visualizer/Diagnostics.gif)
-* Locate the tree node on the text editor
+#### Locate the tree node on the text editor
 
 ![Locate Code](docs/syntax-tree-visualizer/LocateCode.gif)
-* Switch to full tree mode from sub syntax trees and locate trees
+#### Switch to full tree mode from sub syntax trees and locate trees
 
 ![Switch to Full Tree](docs/syntax-tree-visualizer/SwitchFullTree.gif)
+</details>
 
 ---
 ## Ask for Help
