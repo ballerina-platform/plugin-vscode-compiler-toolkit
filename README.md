@@ -11,7 +11,7 @@ Before getting started, make sure you have installed the [Visual Studio Code edi
 
 ### Installing the Ballerina Compiler Toolkit Extension
 
-Follow the steps below to install the Ballerina extension.
+Follow the steps below to install the Ballerina Compiler Toolkit extension.
 
 1. Download and install [Ballerina](https://ballerina.io/learn/installing-ballerina/setting-up-ballerina/).
 2. Install the [Ballerina Extension](https://ballerina.io/learn/tooling-guide/visual-studio-code-extension/quick-start/#installing-the-ballerina-extension). 
@@ -28,7 +28,7 @@ Follow the steps below to install the Ballerina extension.
 ## Capabilities
 
 ### 1. Ballerina Syntax Tree Visualizer
-The compiler toolkit includes the capabilities to generate the syntax trees for any Ballerina source code, using which developers can retrieve a simplified representation of their code blocks for convenient analysis.
+The Ballerina Compiler Toolkit includes the capabilities to generate the syntax tree for a given Ballerina source code, using which developers can retrieve a simplified representation of their code blocks for convenient analysis.
 
 #### The capabilities of the visualizer are in 3 main forms.
 * Generate the complete syntax tree of a Ballerina source file    
@@ -78,7 +78,7 @@ The syntax trees rendered through the visualizer have muliple features available
 <br/>
 
 ### 2. Syntax API Quoter
-The Ballerina syntax API quoter lists the API calls required to create the particular source code's syntax tree. Hence, its capabilities can be leveraged by any developer who uses the Ballerina syntax API to create source code elements.
+The Ballerina syntax API quoter lists the API calls required to create the syntax tree for a given Ballerina source code. Hence, its capabilities can be leveraged by any developer who uses the Ballerina syntax API to create source code elements.
 
 <details>
 <summary> Basic Usage </summary>
