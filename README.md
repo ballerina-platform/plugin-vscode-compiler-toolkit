@@ -31,29 +31,32 @@ Follow the steps below to install the Ballerina Compiler Toolkit extension.
 The Ballerina Compiler Toolkit includes the capabilities to generate the syntax tree for a given Ballerina source code, using which developers can retrieve a simplified representation of their code blocks for convenient analysis.
 
 #### The capabilities of the visualizer are in 3 main forms.
-* Generate the complete syntax tree of a Ballerina source file    
-* Generate the subtree of the syntax tree for a particular block of code
-* Locate a particular piece of code on the complete syntax tree
+* Generate the <em>complete syntax tree</em> of a Ballerina source file    
+* Generate the <em>subtree of the syntax tree</em> for a particular block of code
+* <em>Locate a code segment</em> on the complete syntax tree
 
 <details>
 <summary> Representations </summary>
 
-##### 1. The Graphical Representation
+The syntax tree visualizer has two types of representations.
+1. The Graphical Representation
 
 <img src="docs/syntax-tree-visualizer/GraphicalTree.jpeg" width="60%" >
+<br/> <br/>
 
-##### 2. The Dropdown Representation
+2. The Dropdown Representation
 
 <img src="docs/syntax-tree-visualizer/DropdownTree.jpeg" width="60%">
 </details>
 
 <details>
 <summary> Basic Usage </summary>
+- The command for the full syntax tree retrieval can be found on the <strong>Command Palette</strong> that can be viewed via `Ctrl + Shift + P` or (`Cmd + Shift + P` in macOS).
 
-The command for the full syntax tree retrieval can be found on the Command Palette that can be viewed via `Ctrl + Shift + P` or (`Cmd + Shift + P` in macOS).
 <img src="docs/syntax-tree-visualizer/CommandPalette.gif" width="60%">
+<br/> <br/>
+- The sub syntax tree retrieval and locate code options can be found as <strong>Code Actions</strong>.
 
-The sub syntax tree retrieval and locate code options can be found as Code Actions.
 <img src="docs/syntax-tree-visualizer/CodeActions.gif" width="60%">
 </details>
 
@@ -62,16 +65,19 @@ The sub syntax tree retrieval and locate code options can be found as Code Actio
 
 The syntax trees rendered through the visualizer have muliple features available in both the graphical and dropdown representations.
 
-#### View node details
+#### - View node details
 <img src="docs/syntax-tree-visualizer/NodeDetails.gif" width="70%">
+<br/> <br/>
 
-#### Track syntax diagnostics
+#### - Track syntax diagnostics
 <img src="docs/syntax-tree-visualizer/Diagnostics.gif" width="70%">
+<br/> <br/>
 
-#### Locate the tree node on the text editor
+#### - Locate the tree node on the text editor
 <img src="docs/syntax-tree-visualizer/LocateCode.gif" width="70%">
+<br/> <br/>
 
-#### Switch to full tree mode from sub syntax trees and locate trees
+#### - Switch to full tree mode from sub syntax trees and locate trees
 <img src="docs/syntax-tree-visualizer/SwitchFullTree.gif" width="70%">
 </details>
 
