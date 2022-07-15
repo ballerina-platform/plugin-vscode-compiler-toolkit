@@ -27,7 +27,7 @@ Follow the steps below to install the Ballerina extension.
 ---
 ## Capabilities
 
-### Ballerina Syntax Tree Visualizer
+### 1. Ballerina Syntax Tree Visualizer
 The compiler toolkit includes the capabilities to generate the syntax trees for any Ballerina source code, using which developers can retrieve a simplified representation of their code blocks for convenient analysis.
 
 #### The capabilities of the visualizer are in 3 main forms.
@@ -73,6 +73,19 @@ The syntax trees rendered through the visualizer have muliple features available
 
 #### Switch to full tree mode from sub syntax trees and locate trees
 <img src="docs/syntax-tree-visualizer/SwitchFullTree.gif" width="70%">
+</details>
+
+<br/>
+
+### 2. Syntax API Quoter
+The Ballerina syntax API quoter lists the API calls required to create the particular source code's syntax tree. Hence, its capabilities can be leveraged by any developer who uses the Ballerina syntax API to create source code elements.
+
+<details>
+<summary> Basic Usage </summary>
+
+The command for the syntax API quoter can be found on the Command Palette that can be viewed via `Ctrl + Shift + P` or (`Cmd + Shift + P` in macOS). Executing this command will copy the list of syntax API calls that are required by the Ballerina source code, to the clipboard.
+
+<img src="docs/syntax-api-quoter/CommandPalette.gif" width="60%">
 </details>
 
 ---
