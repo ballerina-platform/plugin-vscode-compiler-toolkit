@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  app:
+    image: frantzme/pythondev:lite
+
+    volumes:
+    - ..:/sync:cached
+
+    command: sh -c "chmod 777 .devcontainer/vs_startup.sh && ./.devcontainer/vs_startup.sh && sleep infinity"

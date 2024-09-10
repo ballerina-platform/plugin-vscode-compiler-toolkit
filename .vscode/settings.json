@@ -1,11 +1,70 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-    "files.exclude": {
-        "out": false // set this to true to hide the "out" folder with the compiled JS files
-    },
     "search.exclude": {
-        "out": true // set this to false to include "out" folder in search results
+        "out": true, // set this to false to include "out" folder in search results
+        "dist": true // set this to false to include "dist" folder in search results
     },
     // Turn off tsc task auto detection since we have the necessary tasks as npm scripts
-    "typescript.tsc.autoDetect": "off"
+    "typescript.tsc.autoDetect": "off",
+    "python.testing.pytestArgs": ["src/test/python_tests"],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.testing.cwd": "${workspaceFolder}",
+    "python.analysis.extraPaths": ["bundled/libs"],
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "files.exclude":{
+        "out": false, // set this to true to hide the "out" folder with the compiled JS files
+        "dist": false, // set this to true to hide the "dist" folder with the compiled JS files
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/.idea":true,
+        "**/__pycache__":true,
+        "**/.devcontainer":true,
+        "**/.github":true,
+        //"**/.vscode":true,
+        "**/.eslintrc.json":true,
+        "**/.gitignore":true,
+        "**/.prettierrc.js":true,
+        "**/.vscodeignore":true,
+        "**/CHANGELOG.md":true,
+        "**/CODE_OF_CONDUCT.md":true,
+        "**/LICENSE":true,
+        "**/package-lock.json":true,
+        "**/SECURITY.md":true,
+        "**/SUPPORT.md":true,
+        "**/tsconfig.json":true,
+        "**/webpack.config.js":true,
+        //"**/src":true,
+        "**/requirements.txt":true,
+        "**/node_modules":true,
+        "**/.nox":true,
+        "**/bundled/libs/":true,
+        "**/dist/":true,
+        "**/appmap.yml":true,
+        "kubectl*":true,
+        "postman.json":true,
+        "*.png":true,
+        "*.md":true,
+        "runtime.txt":true,
+        "requirements.in":true,
+        "noxfile.py":true,
+        ".pytest_cache/":true,
+        "openapi.json":true,
+        ".vscode/":true,
+        "ssh/":true,
+        "test.sqlite*":true,
+        "bundled/tool/pysrc":true,
+        "*.csv":true,
+        "docs/":true,
+        "gradle/":true,
+        "gradlew":true,
+        "gradlew.bat":true
+    }
 }
