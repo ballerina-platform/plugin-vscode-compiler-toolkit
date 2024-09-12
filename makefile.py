@@ -76,20 +76,31 @@ def wait(wait_for:int=2):
         wait_for = wait_for - 1
     print("]",flush=True)
 
-def run(cmd:str, wait_for:int=10):
+def run(cmd:str):
     print(cmd)
     try:
         os.system(cmd)
     except Exception as e:
         print(e)
-    wait(wait_for=wait_for)
+    wait(wait_for=2)
 
 def env():
 	run(
         """docker run  --rm -it -v "{0}:/sync"   -p 6902:6901 --privileged --shm-size=512m -e VNC_PW=password  frantzme/dev:ui "/bin/bash echo \"sudo apt-get install -y npm && sudo npm install -g npm@latest\" >> /home/kasm-user/.bashrc && /bin/bash" """.format(curdir)
     )
 
-def vsExtensions():
+def ini():
+    for x in [
+        "apt-get update",
+        "apt-get --fix-missing",
+        "apt-get install -y python3-pip npm xz-utils",
+        "wget https://nodejs.org/dist/v20.0.0/node-v20.0.0-linux-x64.tar.xz -O /tmp/node.tar.xz", #https://nodejs.org/en/download/current
+        "tar -C /usr/local --strip-components 1 -xJf /tmp/node.tar.xz",
+        "npm install -g npm@latest",
+        "npm install -g @vscode/vsce",
+        "{0} -m pip install --upgrade mystring lsprotocol pygls astroid nox debugpy".format(sys.executable),
+    ]:
+        run(x)
     for x in [
         "dbaeumer.vscode-eslint",
         "Gerrnperl.outline-map",
@@ -101,35 +112,21 @@ def vsExtensions():
     ]:
         run("code --install-extension {0}".format(x))
 
-def ini():
-    for x in [
-        "sudo apt-get update",
-        "sudo apt-get --fix-missing",
-        "sudo apt-get install -y python3-pip npm xz-utils",
-        "wget https://nodejs.org/dist/v20.0.0/node-v20.0.0-linux-x64.tar.xz -O /tmp/node.tar.xz", #https://nodejs.org/en/download/current
-        "sudo tar -C /usr/local --strip-components 1 -xJf /tmp/node.tar.xz",
-        "sudo npm install -g npm@latest",
-        "{0} -m pip install --upgrade mystring lsprotocol pygls astroid nox debugpy".format(sys.executable),
-    ]:
-        run(x)
-    preppy()
-
 
 def recording():
     for x in [
-        "sudo apt-get update",
-        "sudo apt-get install -y scrot imagemagick xdotool",
+        "apt-get update",
+        "apt-get install -y scrot imagemagick xdotool",
         "mkdir /tmp/xsrPrep/",
         "wget https://github.com/nonnymoose/xsr/releases/download/v1.0.0/xsr.tar.gz -O /tmp/xsrPrep/xsr.tar.gz",
-        "cd /tmp/xsrPrep/ && tar xf xsr.tar.gz && sudo mv usr/bin/xsr /bin/xsr && mkdir -p /usr/share/xsr && sudo cp /tmp/xsrPrep/usr/share/xsr/Cursor.png /usr/share/xsr"
+        "cd /tmp/xsrPrep/ && tar xf xsr.tar.gz && mv usr/bin/xsr /bin/xsr && mkdir -p /usr/share/xsr && cp /tmp/xsrPrep/usr/share/xsr/Cursor.png /usr/share/xsr"
 
     ]:
         run(x)
 
 
-def pub():
+def build():
     for x in [
-        "npm install -g @vscode/vsce",
         "vsce package"
     ]:
         run(x)
