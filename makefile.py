@@ -93,24 +93,15 @@ def ini():
     for x in [
         "apt-get update",
         "apt-get --fix-missing",
-        "apt-get install -y python3-pip npm xz-utils",
-        "wget https://nodejs.org/dist/v20.0.0/node-v20.0.0-linux-x64.tar.xz -O /tmp/node.tar.xz", #https://nodejs.org/en/download/current
-        "tar -C /usr/local --strip-components 1 -xJf /tmp/node.tar.xz",
-        "npm install -g npm@latest",
+        "apt-get install -y python3-pip zip unzip wget curl",
+        "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash", #https://nodejs.org/en/download/package-manager/current
+        "nvm install 20",
+        "npm install",
         "npm install -g @vscode/vsce",
+        "export NODE_OPTIONS=--openssl-legacy-provider",# https://www.geeksforgeeks.org/how-to-fix-error0308010cdigital-envelope-routinesunsupported-in-nodejs/
         "{0} -m pip install --upgrade mystring lsprotocol pygls astroid nox debugpy".format(sys.executable),
     ]:
         run(x)
-    for x in [
-        "dbaeumer.vscode-eslint",
-        "Gerrnperl.outline-map",
-        "esbenp.prettier-vscode",
-        "ms-python.vscode-pylance",
-        "ms-python.python",
-        "amodio.tsl-problem-matcher",
-        "k--kato.intellij-idea-keybindings",
-    ]:
-        run("code --install-extension {0}".format(x))
 
 
 def recording():
@@ -130,5 +121,6 @@ def build():
         "vsce package"
     ]:
         run(x)
+
 
 func_argparse_main()
