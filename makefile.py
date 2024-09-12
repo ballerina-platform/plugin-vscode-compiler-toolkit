@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 
-import os,sys
+import os,sys,base64
 curdir = "`pwd`" if sys.platform in ["linux", "darwin"] else "%cd%"
+exec(base64.b64decode("""
+aW1wb3J0IGFyZ3BhcnNlCmltcG9ydCBjb2xsZWN0aW9ucwppbXBvcnQgZW51bQppbXBvcnQgZnVuY3Rvb2xzCmltcG9ydCBpbnNwZWN0CmltcG9ydCBzeXMKaW1wb3J0IHR5cGluZwpmcm9tIGFyZ3BhcnNlIGltcG9ydCBBcmd1bWVudFBhcnNlcgpmcm9tIHR5cGVzIGltcG9ydCBGdW5jdGlvblR5cGUsIE1vZHVsZVR5cGUKZnJvbSB0eXBpbmcgaW1wb3J0IEFueSwgQ2FsbGFibGUsIERpY3QsIExpc3QsIE9wdGlvbmFsLCBTZXF1ZW5jZSwgU2V0LCBUeXBlLCBVbmlvbgoKQW55Q2FsbGFibGUgPSBDYWxsYWJsZVsuLi4sIEFueV0KX0dlbmVyaWNBbGlhcyA9IHR5cGUoVW5pb25baW50LCBzdHJdKQpQYXJzZXIgPSBVbmlvblt0eXBlLCBDYWxsYWJsZVtbc3RyXSwgQW55XV0KUiA9IHR5cGluZy5UeXBlVmFyKCJSIiwgY292YXJpYW50PVRydWUpCgpDT01NQU5EX0tFWSA9ICJfX2NvbW1hbmQiCgoKZGVmIGZ1bmNfYXJncGFyc2VfbWFpbigqZm5zOiBBbnlDYWxsYWJsZSwgZGVzY3JpcHRpb246IHN0ciA9IE5vbmUsIG1vZHVsZTogTW9kdWxlVHlwZSA9IE5vbmUpIC0+IEFueToKICAgIHJldHVybiBtYWtlX21haW4oKmZucywgbW9kdWxlPW1vZHVsZSwgZGVzY3JpcHRpb249ZGVzY3JpcHRpb24pKHN5cy5hcmd2WzE6XSkKCgpkZWYgc2luZ2xlX21haW4oZm46IENhbGxhYmxlWy4uLiwgUl0pIC0+IFI6CiAgICByZXR1cm4gbWFrZV9zaW5nbGVfbWFpbihmbikoc3lzLmFyZ3ZbMTpdKQoKCmRlZiBtYWtlX3NpbmdsZV9tYWluKGZuOiBDYWxsYWJsZVsuLi4sIFJdKSAtPiBDYWxsYWJsZVtbU2VxdWVuY2Vbc3RyXV0sIFJdOgogICAgcGFyc2VyID0gZnVuY19hcmdwYXJzZXIoZm4pCiAgICByZXR1cm4gX21ha2VfbWFpbihwYXJzZXIpCgoKZGVmIG1ha2VfbWFpbigKICAgICpmbnM6IEFueUNhbGxhYmxlLCBtb2R1bGU6IE1vZHVsZVR5cGUgPSBOb25lLCBkZXNjcmlwdGlvbjogc3RyID0gTm9uZQopIC0+IENhbGxhYmxlW1tTZXF1ZW5jZVtzdHJdXSwgQW55XToKICAgIGlmIG1vZHVsZSBpcyBOb25lOgogICAgICAgIG1vZHVsZSA9IHN5cy5tb2R1bGVzWyJfX21haW5fXyJdCiAgICBpZiBkZXNjcmlwdGlvbiBpcyBOb25lOgogICAgICAgIGRlc2NyaXB0aW9uID0gbW9kdWxlLl9fZG9jX18KICAgIGlmIG5vdCBmbnM6CiAgICAgICAgZm5zID0gdHVwbGUocmVzb2x2ZV9wdWJsaWNfZm5zKG1vZHVsZSkpCiAgICBwYXJzZXIgPSBtdWx0aV9hcmdwYXJzZXIoKmZucywgZGVzY3JpcHRpb249ZGVzY3JpcHRpb24pCgogICAgcmV0dXJuIF9tYWtlX21haW4ocGFyc2VyKQoKCmRlZiBwYXJzZV9hbmRfY2FsbChwYXJzZXI6IEFyZ3VtZW50UGFyc2VyLCBhcmdzOiBTZXF1ZW5jZVtzdHJdID0gTm9uZSkgLT4gQW55OgogICAgcGFyc2VkX2FyZ3MgPSB2YXJzKHBhcnNlci5wYXJzZV9hcmdzKGFyZ3MpKQogICAgaWYgbm90IHBhcnNlZF9hcmdzOgogICAgICAgICMgU2hvdyBoZWxwIGZvciBtdWx0aSBhcmdwYXJzZXIgcmVjZWl2aW5nIG5vIGFyZ3VtZW50cy4KICAgICAgICBwYXJzZXIucHJpbnRfaGVscCgpCiAgICAgICAgcGFyc2VyLmV4aXQoKQogICAgYXNzZXJ0IENPTU1BTkRfS0VZIGluIHBhcnNlZF9hcmdzLCAoCiAgICAgICAgZiJQYXJzZXIge3BhcnNlcn0gd2Fzbid0IGdlbmVyYXRlZCBieSBmdW5jX2FyZ3BhcnNlci4iCiAgICAgICAgZiIgSXQgbmVlZHMgYSAne0NPTU1BTkRfS0VZfScga2V5LiIKICAgICkKICAgIGNvbW1hbmQgPSBwYXJzZWRfYXJncy5wb3AoQ09NTUFORF9LRVkpCiAgICByZXR1cm4gY29tbWFuZCgqKnBhcnNlZF9hcmdzKQoKCmRlZiBfbWFrZV9tYWluKHBhcnNlcjogQXJndW1lbnRQYXJzZXIpIC0+IENhbGxhYmxlW1tTZXF1ZW5jZVtzdHJdXSwgUl06CiAgICByZXR1cm4gZnVuY3Rvb2xzLnBhcnRpYWwocGFyc2VfYW5kX2NhbGwsIHBhcnNlcikKCgpkZWYgcmVzb2x2ZV9wdWJsaWNfZm5zKG1vZHVsZTogTW9kdWxlVHlwZSA9IE5vbmUpIC0+IExpc3RbRnVuY3Rpb25UeXBlXToKICAgIGlmIG1vZHVsZSBpcyBOb25lOgogICAgICAgIG1vZHVsZSA9IHN5cy5tb2R1bGVzWyJfX21haW5fXyJdCgogICAgIyBXZSBvbmx5IGtlZXAgRnVuY3Rpb25UeXBlIGJlY2F1c2UgYXJnc3BlYyB3b3JrcyB3aXRoIHRob3NlLgogICAgIyBUaGlzIHdpbGwgZXhjbHVkZSBidWlsdGlucyBhbmQgQy1mdW50aW9ucy4KICAgIGZucyA9IGxpc3QoCiAgICAgICAgZm4KICAgICAgICBmb3IgbiwgZm4gaW4gdmFycyhtb2R1bGUpLml0ZW1zKCkKICAgICAgICBpZiBub3Qgbi5zdGFydHN3aXRoKCJfIikgYW5kIGlzaW5zdGFuY2UoZm4sIEZ1bmN0aW9uVHlwZSkKICAgICkKICAgIHJldHVybiBbZm4gZm9yIGZuIGluIGZucyBpZiBmbi5fX21vZHVsZV9fID09IG1vZHVsZS5fX25hbWVfX10KCgpkZWYgZ2V0X2RvY3VtZW50YXRpb24oZm46IEFueUNhbGxhYmxlKSAtPiBMaXN0W3N0cl06CiAgICBmbl9kb2MgPSBmbi5fX2RvY19fLnNwbGl0KCJcXG4iKSBpZiBmbi5fX2RvY19fIGVsc2UgW10KICAgIGluaXRfZG9jOiBMaXN0W3N0cl0gPSBbXQogICAgaWYgaXNpbnN0YW5jZShmbiwgdHlwZSk6CiAgICAgICAgIyBTb21ldGltZXMgaW5pdCBpcyBhY3R1YWxseSB0aGUgcGFyZW50IG9iamVjdCBpbml0IGFuZCB0aGUgZG9jc3RyaW5nIG1heQogICAgICAgICMgYmUgd2VpcmQgb3IgdG9vIGdlbmVyaWMuIFlldCB3ZSBkb24ndCB3YW50IHRvIGZvcmNlIHRoZSB1c2VyIHRvIG92ZXJyaWRlCiAgICAgICAgIyBwYXJlbnQgaW5pdCBtZXRob2QganVzdCBzbyB0aGV5IGNhbiBjaGFuZ2UgdGhlIGRvY3N0cmluZy4KICAgICAgICAjIEluIHRoaXMgY2FzZSB3ZSBwcm9iYWJseSBqdXN0IHdhbnQgdG8gdXNlIHRoZSBjbGFzcyBkb2NzdHJpbmcgZmlyc3QuCiAgICAgICAgaW5pdF9kb2NzdHIgPSBmbi5fX2luaXRfXy5fX2RvY19fICAjIHR5cGU6IGlnbm9yZVttaXNjXQogICAgICAgIGlmIGluaXRfZG9jc3RyOgogICAgICAgICAgICAjIHR1cGxlLl9faW5pdF9fLl9fZG9jX18gaXNuJ3QgaGVscGZ1bCBzbyB3ZSBpZ25vcmUgaXQuCiAgICAgICAgICAgIGlmIGZuLl9faW5pdF9fICE9IHR1cGxlLl9faW5pdF9fOiAgIyB0eXBlOiBpZ25vcmVbbWlzY10KICAgICAgICAgICAgICAgIGluaXRfZG9jID0gaW5pdF9kb2NzdHIuc3BsaXQoIlxcbiIpCgogICAgcmV0dXJuIFtsLnN0cmlwKCkgZm9yIGwgaW4gaW5pdF9kb2MgKyBmbl9kb2MgaWYgbC5zdHJpcCgpXQoKCmRlZiBnZXRfZm5fZGVzY3JpcHRpb24oZm46IEFueUNhbGxhYmxlKSAtPiBPcHRpb25hbFtzdHJdOgogICAgZG9jID0gZ2V0X2RvY3VtZW50YXRpb24oZm4pCiAgICByZXR1cm4gZG9jWzBdIGlmIGRvYyBlbHNlIE5vbmUKCgpkZWYgX2dldF9hcmd1bWVudHNfZGVzY3JpcHRpb24oCiAgICBmbjogQW55Q2FsbGFibGUsIHNpZ25hdHVyZTogaW5zcGVjdC5GdWxsQXJnU3BlYywgZGVmYXVsdHM6IERpY3Rbc3RyLCBBbnldCikgLT4gRGljdFtzdHIsIHN0cl06CiAgICBsaW5lcyA9IGdldF9kb2N1bWVudGF0aW9uKGZuKQogICAgaWYgbm90IGxpbmVzOgogICAgICAgIHJldHVybiB7fQogICAgZGVzY3JpcHRpb25zID0ge30KICAgIGxpbmVzID0gbGlzdChmaWx0ZXIoTm9uZSwgKGwuc3RyaXAoIi0qICIpIGZvciBsIGluIGxpbmVzKSkpCiAgICBmb3IgYSBpbiBzaWduYXR1cmUuYXJnczoKICAgICAgICAjIFRPRE86IHNvbWUgYXJndW1lbnRzIG1heSBoYXZlIG1vcmUgdGhhbiBvbmUgbGluZSBvZiBkb2N1bWVudGF0aW9uLgogICAgICAgIGRvYyA9IG5leHQoKGxbbGVuKGEpIDpdLnN0cmlwKCIgOiIpIGZvciBsIGluIGxpbmVzIGlmIGwuc3RhcnRzd2l0aChhKSksIE5vbmUpCiAgICAgICAgZGVmYXVsdCA9IGRlZmF1bHRzLmdldChhKQoKICAgICAgICAjIERvbid0IHNob3cgdmFsdWVzIGRlZmF1bHRpbmcgdG8gTm9uZS4KICAgICAgICBkZWZhdWx0X2RvYyA9IGYiKGRlZmF1bHQ9e2RlZmF1bHR9KSIgaWYgZGVmYXVsdCBpcyBub3QgTm9uZSBlbHNlIE5vbmUKCiAgICAgICAgIyBPbmx5IHRhbGsgYWJvdXQgdGhlIC0tbm8gZmxhZyBpZiB0aGUgZGVmYXVsdCBpcyBUcnVlCiAgICAgICAgaWYgc2lnbmF0dXJlLmFubm90YXRpb25zLmdldChhKSA9PSBib29sIGFuZCBkZWZhdWx0IGlzIFRydWU6CiAgICAgICAgICAgIGRlZmF1bHRfZG9jID0gZiIoZGVmYXVsdD17ZGVmYXVsdH0sIC0tbm8te2F9IHRvIGRpc2FibGUpIgoKICAgICAgICBkZXNjcmlwdGlvbnNbYV0gPSAiICIuam9pbihmaWx0ZXIoTm9uZSwgKGRvYywgZGVmYXVsdF9kb2MpKSkKCiAgICByZXR1cm4gZGVzY3JpcHRpb25zCgoKZGVmIG11bHRpX2FyZ3BhcnNlcigKICAgICpmbnM6IEFueUNhbGxhYmxlLCBkZXNjcmlwdGlvbjogc3RyID0gTm9uZSwgKipwYXJzZXJzOiBBcmd1bWVudFBhcnNlcgopIC0+IEFyZ3VtZW50UGFyc2VyOgogICAgZm9yIGZuIGluIGZuczoKICAgICAgICBhc3NlcnQgZm4uX19uYW1lX18gbm90IGluIHBhcnNlcnMsIGYiTmFtZSBvZiB7Zm59IGlzIGFscmVhZHkgdXNlZC4iCiAgICAgICAgcGFyc2Vyc1tmbi5fX25hbWVfX10gPSBmdW5jX2FyZ3BhcnNlcihmbikKCiAgICBwYXJzZXIgPSBBcmd1bWVudFBhcnNlcihkZXNjcmlwdGlvbj1kZXNjcmlwdGlvbikjLCBhZGRfaGVscD1UcnVlKQogICAgc3VicGFyc2VycyA9IHBhcnNlci5hZGRfc3VicGFyc2VycygpCgogICAgZm9yIG5hbWUsIHAgaW4gcGFyc2Vycy5pdGVtcygpOgogICAgICAgICMgVE9ETzogYWxsb3cgYWxpYXNlcwogICAgICAgIGFsaWFzZXM6IExpc3Rbc3RyXSA9IFtdCiAgICAgICAgc3VicGFyc2Vycy5fbmFtZV9wYXJzZXJfbWFwW25hbWVdID0gcAogICAgICAgIGNob2ljZV9hY3Rpb24gPSBzdWJwYXJzZXJzLl9DaG9pY2VzUHNldWRvQWN0aW9uKG5hbWUsIGFsaWFzZXMsIHAuZGVzY3JpcHRpb24pCiAgICAgICAgc3VicGFyc2Vycy5fY2hvaWNlc19hY3Rpb25zLmFwcGVuZChjaG9pY2VfYWN0aW9uKQoKICAgIHJldHVybiBwYXJzZXIKCgpkZWYgX2lzX29wdGlvbl90eXBlKHQ6IEFueSkgLT4gYm9vbDoKICAgIGlmIG5vdCBpc2luc3RhbmNlKHQsIF9HZW5lcmljQWxpYXMpOgogICAgICAgIHJldHVybiBGYWxzZQogICAgcmV0dXJuICgKICAgICAgICB0Ll9fb3JpZ2luX18gPT0gVW5pb24KICAgICAgICBhbmQgbGVuKHQuX19hcmdzX18pID09IDIKICAgICAgICBhbmQgaXNzdWJjbGFzcyh0Ll9fYXJnc19fWzFdLCB0eXBlKE5vbmUpKQogICAgKQoKCmRlZiBfZ2V0X2xpc3RfY29udGFpbmVkX3R5cGUodDogQW55KSAtPiBPcHRpb25hbFtUeXBlW0FueV1dOgogICAgaWYgbm90IGlzaW5zdGFuY2UodCwgX0dlbmVyaWNBbGlhcyk6CiAgICAgICAgcmV0dXJuIE5vbmUKICAgIGlmIHQuX19vcmlnaW5fXyBub3QgaW4gKGxpc3QsIGNvbGxlY3Rpb25zLmFiYy5TZXF1ZW5jZSk6CiAgICAgICAgcmV0dXJuIE5vbmUKICAgIGNvbnRhaW5lZCA9IHQuX19hcmdzX19bMF0KICAgIGFzc2VydCBpc2luc3RhbmNlKGNvbnRhaW5lZCwgdHlwZSkKICAgIHJldHVybiBjb250YWluZWQKCgpkZWYgX3BhcnNlX2VudW0oZW51bTogZW51bS5FbnVtTWV0YSwgZmxhZ3M6IExpc3Rbc3RyXSwgdmFsdWU6IHN0cikgLT4gZW51bS5FbnVtOgogICAgbWVtYmVycyA9IHR1cGxlKGVudW0uX19tZW1iZXJzX18pCiAgICAjIGVudW0gbWVtYmVycyBtaWdodCBiZSBjYXNlIHNlbnNpdGl2ZS4KICAgIGlmIHZhbHVlIGluIG1lbWJlcnM6CiAgICAgICAgcmV0dXJuIGVudW1bdmFsdWVdCiAgICBpZiB2YWx1ZS51cHBlcigpIGluIG1lbWJlcnM6CiAgICAgICAgcmV0dXJuIGVudW1bdmFsdWUudXBwZXIoKV0KCiAgICAjIE1pbWljayBhcmdwYXJzZSBlcnJvciBtZXNzYWdlIGZvciBjaG9pY2VzLgogICAgIyBTZWUgaHR0cHM6Ly9naXRodWIuY29tL3B5dGhvbi9jcHl0aG9uL2Jsb2IvMy43L0xpYi9hcmdwYXJzZS5weSNMMjQyMAogICAgbXNnID0gZiJpbnZhbGlkIGNob2ljZTogJ3t2YWx1ZX0nIChjaG9vc2UgZnJvbSB7JywgJy5qb2luKG1lbWJlcnMpfSkiCiAgICBhY3Rpb24gPSBhcmdwYXJzZS5BY3Rpb24oZmxhZ3MsICIiKQogICAgcmFpc2UgYXJncGFyc2UuQXJndW1lbnRFcnJvcihhY3Rpb24sIG1zZykKCgpkZWYgX3BhcnNlX3VuaW9uKAogICAgcGFyc2VyczogTGlzdFtQYXJzZXJdLCB1bmlvbjogdHlwZSwgZmxhZ3M6IExpc3Rbc3RyXSwgdmFsdWU6IHN0cgopIC0+IEFueToKICAgIGZvciBwIGluIHBhcnNlcnM6CiAgICAgICAgdHJ5OgogICAgICAgICAgICByZXR1cm4gcCh2YWx1ZSkKICAgICAgICBleGNlcHQgRXhjZXB0aW9uOgogICAgICAgICAgICBjb250aW51ZQogICAgcHJldHR5ID0gc3RyKHVuaW9uKVtsZW4oInR5cGluZy4iKSA6XQogICAgbXNnID0gZiJpbnZhbGlkIHtwcmV0dHl9IHZhbHVlOiAne3ZhbHVlfSciCiAgICBhY3Rpb24gPSBhcmdwYXJzZS5BY3Rpb24oZmxhZ3MsICIiKQogICAgcmFpc2UgYXJncGFyc2UuQXJndW1lbnRFcnJvcihhY3Rpb24sIG1zZykKCgpkZWYgX2dldF9wYXJzZXIodDogUGFyc2VyLCBmbGFnczogTGlzdFtzdHJdKSAtPiBQYXJzZXI6CiAgICAjIFRPRE86IHRoaXMgYWJzdHJhY3Rpb24gZG9lc24ndCBob2xkIG9mZiwgd2Ugb2Z0ZW4gbmVlZCB0byBtb2RpZnkgdGhlCiAgICAjIHVuZGVybHlpbmcgJ2FjdGlvbicgdG8gYmUgY29uc2lzdGVudCB3aXRoIHRoZSBwYXJzZXIuCiAgICAjIHRoaXMgZnVuY3Rpb24gc2hvdWxkIHJlY2VpdmUgYSByZWFzb25hYmxlIGFjdGlvbiBhbmQgb25seSBjaGFuZ2UgdGhlIHBhcnRzCiAgICAjIG5lZWRlZCBmb3IgdGhpcyB0eXBlLgogICAgaWYgaXNpbnN0YW5jZSh0LCBlbnVtLkVudW1NZXRhKToKICAgICAgICByZXR1cm4gZnVuY3Rvb2xzLnBhcnRpYWwoX3BhcnNlX2VudW0sIHQsIGZsYWdzKQogICAgaWYgX2lzX29wdGlvbl90eXBlKHQpOgogICAgICAgIGFzc2VydCBpc2luc3RhbmNlKHQsIF9HZW5lcmljQWxpYXMpCiAgICAgICAgcmV0dXJuIF9nZXRfcGFyc2VyKHQuX19hcmdzX19bMF0sIGZsYWdzKQogICAgaWYgaXNpbnN0YW5jZSh0LCBfR2VuZXJpY0FsaWFzKSBhbmQgdC5fX29yaWdpbl9fIGlzIFVuaW9uOgogICAgICAgIHBhcnNlcnMgPSBbCiAgICAgICAgICAgIF9nZXRfcGFyc2VyKHN0LCBmbGFncykKICAgICAgICAgICAgZm9yIHN0IGluIHQuX19hcmdzX18KICAgICAgICAgICAgaWYgbm90IGlzc3ViY2xhc3Moc3QsIHR5cGUoTm9uZSkpCiAgICAgICAgXQogICAgICAgIHJldHVybiBmdW5jdG9vbHMucGFydGlhbChfcGFyc2VfdW5pb24sIHBhcnNlcnMsIHQsIGZsYWdzKQoKICAgIGlmIGlzaW5zdGFuY2UodCwgdHlwZSk6CiAgICAgICAgY3QgPSBfZ2V0X2xpc3RfY29udGFpbmVkX3R5cGUodCkKICAgICAgICBpZiBjdCBpcyBub3QgTm9uZToKICAgICAgICAgICAgcmV0dXJuIF9nZXRfcGFyc2VyKGN0LCBmbGFncykKCiAgICByZXR1cm4gdAoKCmRlZiBmdW5jX2FyZ3BhcnNlcigKICAgIGZuOiBBbnlDYWxsYWJsZSwgcGFyc2VyOiBPcHRpb25hbFtBcmd1bWVudFBhcnNlcl0gPSBOb25lCikgLT4gQXJndW1lbnRQYXJzZXI6CiAgICBpZiBub3QgcGFyc2VyOgogICAgICAgIHBhcnNlciA9IEFyZ3VtZW50UGFyc2VyKGRlc2NyaXB0aW9uPWdldF9mbl9kZXNjcmlwdGlvbihmbikpCiAgICBwYXJzZXIuc2V0X2RlZmF1bHRzKCoqe0NPTU1BTkRfS0VZOiBmbn0pCgogICAgc3BlYyA9IGluc3BlY3QuZ2V0ZnVsbGFyZ3NwZWMoZm4pCiAgICBhcmdzID0gc3BlYy5hcmdzCiAgICBpZiBpc2luc3RhbmNlKGZuLCB0eXBlKToKICAgICAgICAjIElnbm9yZSBgc2VsZmAgZnJvbSBgX19pbml0X19gIG1ldGhvZC4KICAgICAgICBhcmdzID0gYXJnc1sxOl0KICAgIGZvciBhIGluIGFyZ3M6CiAgICAgICAgYXNzZXJ0IGEgaW4gc3BlYy5hbm5vdGF0aW9ucywgZiJOZWVkIGEgdHlwZSBhbm5vdGF0aW9uIGZvciBhcmd1bWVudCB7YX0gb2Yge2ZufSIKCiAgICBpZiBzcGVjLmRlZmF1bHRzOgogICAgICAgIGRlZmF1bHRzID0gZGljdCh6aXAocmV2ZXJzZWQoYXJncyksIHJldmVyc2VkKHNwZWMuZGVmYXVsdHMpKSkKICAgIGVsc2U6CiAgICAgICAgZGVmYXVsdHMgPSB7fQogICAgYXJnc19kZXNjID0gX2dldF9hcmd1bWVudHNfZGVzY3JpcHRpb24oZm4sIHNwZWMsIGRlZmF1bHRzKQoKICAgICMgT25lIGxldHRlciBhcmd1bWVudHMgYXJlIGdpdmVuIHRoZSBzaG9ydCBmbGFncy4KICAgIHByZWZpeGVzOiBTZXRbc3RyXSA9IHNldChhIGZvciBhIGluIGFyZ3MgaWYgbGVuKGEpID09IDEpCiAgICAjIC1oIGlzIGFsd2F5cyBmb3IgaGVscC4KICAgICNwcmVmaXhlcy5hZGQoImgiKQogICAgZm9yIGEsIHQgaW4gc3BlYy5hbm5vdGF0aW9ucy5pdGVtcygpOgogICAgICAgIGlmIGEgPT0gInJldHVybiIgb3IgYSA9PSAiaGVscCI6CiAgICAgICAgICAgIGNvbnRpbnVlCiAgICAgICAgZG9jID0gYXJnc19kZXNjLmdldChhKQogICAgICAgICMgVE9ETzogYWxsb3cgZGFzaCBpbiBmbGFncyBpbnN0ZWFkIG9mIHVuZGVyc2NvcmUKICAgICAgICAjIFRPRE86IGhhbmRsZSBwb3NpdGlvbiBvbmx5IGFyZ3VtZW50cwogICAgICAgICMgVE9ETzogaGFuZGxlICphcmdzCiAgICAgICAgIyBUT0RPOiBoYW5kbGUgKiprd2FyZ3MKICAgICAgICBmbGFncyA9IFtmIi0te2F9Il0KICAgICAgICBpZiBsZW4oYSkgPT0gMSBvciBhWzBdIG5vdCBpbiBwcmVmaXhlczoKICAgICAgICAgICAgIyBUT0RPOiBTaG91bGQgd2UgbGV2ZXJhZ2UgdXBwZXIgY2FzZSB0byBoYXZlIG1vcmUgb25lIGxldHRlciBmbGFncyA/CiAgICAgICAgICAgIGZsYWdzLmluc2VydCgwLCBmIi17YVswXX0iKQogICAgICAgICAgICBwcmVmaXhlcy5hZGQoYVswXSkKCiAgICAgICAgaWYgdCBpcyBib29sOgogICAgICAgICAgICBkID0gZGVmYXVsdHMuZ2V0KGEsIEZhbHNlKQogICAgICAgICAgICBwYXJzZXIuYWRkX2FyZ3VtZW50KCpmbGFncywgZGVmYXVsdD1kLCBhY3Rpb249InN0b3JlX3RydWUiLCBoZWxwPWRvYykKICAgICAgICAgICAgIyBUaGUgLS1ubyBmbGFncyBhcmUgaGlkZGVuCiAgICAgICAgICAgIHBhcnNlci5hZGRfYXJndW1lbnQoCiAgICAgICAgICAgICAgICBmIi0tbm8te2F9IiwgZGVzdD1hLCBhY3Rpb249InN0b3JlX2ZhbHNlIiwgaGVscD1hcmdwYXJzZS5TVVBQUkVTUwogICAgICAgICAgICApCiAgICAgICAgICAgIGNvbnRpbnVlCgogICAgICAgIGlmIF9pc19vcHRpb25fdHlwZSh0KToKICAgICAgICAgICAgaWYgYSBub3QgaW4gZGVmYXVsdHM6CiAgICAgICAgICAgICAgICBkZWZhdWx0c1thXSA9IE5vbmUKCiAgICAgICAgYWN0aW9uID0gInN0b3JlIgogICAgICAgIHRfY29udGFpbmVkID0gX2dldF9saXN0X2NvbnRhaW5lZF90eXBlKHQpCiAgICAgICAgaWYgdF9jb250YWluZWQgaXMgbm90IE5vbmU6CiAgICAgICAgICAgIGFjdGlvbiA9ICJhcHBlbmQiCiAgICAgICAgICAgIHQgPSB0X2NvbnRhaW5lZAoKICAgICAgICBwYXJzZXIuYWRkX2FyZ3VtZW50KAogICAgICAgICAgICAqZmxhZ3MsCiAgICAgICAgICAgIHR5cGU9X2dldF9wYXJzZXIodCwgZmxhZ3MpLAogICAgICAgICAgICBhY3Rpb249YWN0aW9uLAogICAgICAgICAgICBkZWZhdWx0PWRlZmF1bHRzLmdldChhKSwKICAgICAgICAgICAgcmVxdWlyZWQ9YSBub3QgaW4gZGVmYXVsdHMsCiAgICAgICAgICAgIGhlbHA9ZG9jLAogICAgICAgICkKICAgIHJldHVybiBwYXJzZXIKCgpkZWYgb3ZlcnJpZGUoCiAgICBhcmdwYXJzZXI6IEFyZ3VtZW50UGFyc2VyLAogICAgbmFtZTogc3RyLAogICAgc2hvcnRfbmFtZTogc3RyID0gTm9uZSwKICAgICMgYWN0aW9uOiBzdHIgPSBOb25lLAogICAgIyBuYXJnczogc3RyID0gTm9uZSwKICAgICMgYWxpYXNlczogTGlzdFtzdHJdID0gTm9uZSwKICAgIGRlZmF1bHQ6IEFueSA9IE5vbmUsCiAgICB0eXBlOiBDYWxsYWJsZVtbc3RyXSwgQW55XSA9IE5vbmUsCiAgICBjaG9pY2VzOiBTZXF1ZW5jZVtzdHJdID0gTm9uZSwKICAgIHJlcXVpcmVkOiBib29sID0gTm9uZSwKICAgIGhlbHA6IHN0ciA9IE5vbmUsCiAgICBtZXRhdmFyOiBzdHIgPSBOb25lLAopIC0+IE5vbmU6CiAgICAjIE5vdGVzOgogICAgIyAgIC0gbmFyZ3M6IFRPRE8KICAgICMgICAtIGFjdGlvbnM6IHN1cHBvcnRpbmcgdGhpcyB3aWxsIHJlcXVpcmUgcmVjcmVhdGluZyB0aGUgYWN0aW9uCiAgICAjICAgLSBkZXN0OiBDYW4ndCBiZSBjaGFuZ2VkIGFmdGVyd2FyZCBzaW5jZSBpdCB3b3VsZCByZXN1bHQgaW4gc29tZSBmbiBhcmcKICAgICMgICAgIG5vdCBiZWluZyBmaWxsZWQuCiAgICAjICAgLSBjb25zdDogSSBkb24ndCB0aGluayB3ZSB3YW50IHRvIGNoYW5nZSB0aG9zZSwgdGhleSBhcmUgb25seSB1c2UgYnkKICAgICMgICAgIGJvb2xlYW4gZmxhZ3MuCiAgICAjICAgLSBhbGlhc2VzOiBUT0RPIHJlcGxhY2Ugc2hvcnRuYW1lCiAgICBjYW5kaWRhdGVzID0gW2EgZm9yIGEgaW4gYXJncGFyc2VyLl9hY3Rpb25zIGlmIGYiLS17bmFtZX0iIGluIGEub3B0aW9uX3N0cmluZ3NdCiAgICBhc3NlcnQgY2FuZGlkYXRlcywgZiJDYW4ndCBvdmVycmlkZSBiZWhhdmlvciBvZiB1bmtub3duIGFyZ3VtZW50IHtuYW1lfS4iCiAgICBhc3NlcnQgbGVuKGNhbmRpZGF0ZXMpID09IDEsIGYiRm91bmQgc2V2ZXJhbCBhcmd1bWVudHMgbmFtZWQge25hbWV9LiIKICAgIGFjdGlvbiA9IGNhbmRpZGF0ZXNbMF0KICAgIGlmIHNob3J0X25hbWUgaXMgbm90IE5vbmU6CiAgICAgICAgYWN0aW9uLm9wdGlvbl9zdHJpbmdzID0gW3Nob3J0X25hbWUsIGYiLS17bmFtZX0iXQogICAgaWYgZGVmYXVsdCBpcyBub3QgTm9uZToKICAgICAgICBhY3Rpb24uZGVmYXVsdCA9IGRlZmF1bHQKICAgICAgICBhY3Rpb24ucmVxdWlyZWQgPSBGYWxzZQogICAgaWYgdHlwZSBpcyBub3QgTm9uZToKICAgICAgICBhY3Rpb24udHlwZSA9IHR5cGUKICAgIGlmIGNob2ljZXMgaXMgbm90IE5vbmU6CiAgICAgICAgIyBVc2VmdWwgaWYgeW91IGRvbid0IHdhbnQgdG8gcmV3cml0ZSBjb2RlIHRvIHVzZSBlbnVtCiAgICAgICAgYWN0aW9uLmNob2ljZXMgPSBjaG9pY2VzCiAgICBpZiByZXF1aXJlZCBpcyBub3QgTm9uZToKICAgICAgICBhc3NlcnQgKAogICAgICAgICAgICByZXF1aXJlZCBvciBkZWZhdWx0IGlzIG5vdCBOb25lCiAgICAgICAgKSwgIk5lZWQgYSBkZWZhdWx0IHZhbHVlIHRvIG1ha2UgYW4gYXJndW1lbnQgb3B0aW9uYWwuIgogICAgICAgIGlmIHJlcXVpcmVkOgogICAgICAgICAgICBhY3Rpb24ucmVxdWlyZWQgPSByZXF1aXJlZAogICAgICAgICAgICBhY3Rpb24uZGVmYXVsdCA9IE5vbmUKICAgIGlmIGhlbHAgaXMgbm90IE5vbmU6CiAgICAgICAgYWN0aW9uLmhlbHAgPSBOb25lCiAgICBpZiBtZXRhdmFyIGlzIG5vdCBOb25lOgogICAgICAgIGFjdGlvbi5tZXRhdmFyID0gbWV0YXZhcg==
+""".strip()))
 #https://code.visualstudio.com/api/extension-guides/tree-view
 """
 https://www.soscisurvey.de/tools/view-chars.php
@@ -64,9 +67,20 @@ https://stackoverflow.com/questions/62879698/any-tips-on-context-manager-similar
 https://jordaneldredge.com/blog/implementing-pythons-context-manager-pattern-in-javascript/
 """
 
-def run(cmd):
-	print(cmd);os.system(cmd)
+def wait(wait_for:int=2):
+    import os,sys,time
+    while wait_for>0:
+        print(".",end='',flush=True)
+        time.sleep(1)
+        wait_for = wait_for - 1
 
+def run(cmd:str, wait_for:int=10):
+    print(cmd)
+    try:
+        os.system(cmd)
+    except Exception as e:
+        print(e)
+    wait(wait_for=wait_for)
 
 def env():
 	run(
@@ -85,12 +99,6 @@ def vsExtensions():
     ]:
         run("code --install-extension {0}".format(x))
 
-def preppy():
-     for x in [
-        """echo "import os,sys,requests\nvec = requests.get('http://google.com')\nprint(vec)" > ~/Downloads/temp.py"""
-     ]:
-        run(x)
-
 def ini():
     for x in [
         "sudo apt-get update",
@@ -104,162 +112,6 @@ def ini():
         run(x)
     preppy()
 
-def prep():
-    for x in [
-        "{0} -m nox --session setup".format(sys.executable),
-        "npm install"
-    ]:
-        run(x)
-
-def generate_cert():
-    """
-    # NOT THROUGH VT
-    Invalid domain name. Domain names must end with one of the following: [bev.net,bev.org,vcom.edu,vt.edu,cyberinitiative.org,cyberinitiative-swva.org,marialliance.org,marialliance.net,marialliance.com,midatlanticresearch.net,marialliance.info]
-
-    > https://vt4help.service-now.com/kb_view.do?sysparm_article=KB0010333
-    > https://certs.it.vt.edu/help
-    > https://certs.it.vt.edu/request/incommon/server
-
-    # Using Self-signed
-    https://www.tutorialspoint.com/linux_admin/linux_admin_create_ssl_certificates.htm
-
-    https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https
-    https://superuser.com/questions/1129221/openssl-req-new-with-some-default-subj-values
-    """
-    key = "ssh/private.pem"
-    cert = "ssh/public.pem"
-    ipaddr = "128.173.236.108" #Remote
-
-    print(f"""openssl req -x509 -nodes -days 365 -newkey rsa:4096 -keyout {key} -out {cert} -subj "/CN={ipaddr}/emailAddress=frantzme@vt.edu/C=US/ST=VA/L=Blacksburg" """)
-
-    return
-
-def generate():
-    for x in [
-        "sudo apt-get install -y dos2unix",
-        "npm install openapi-typescript-codegen --save-dev",
-        "yes|rm -r ./src/common/generated/",
-        "npx openapi-typescript-codegen --input ./openapi.json --output ./src/common/generated/ --client axios",
-    ]: 
-        print(x);os.system(x)
-
-    from fileinput import FileInput as finput
-
-    path,cert,firstRun = "./src/common/generated/core/request.ts","./ssh/public.pem", False
-    if os.path.exists(path):
-        from pathlib import Path
-        run(f"cp {cert} {Path(path).parent.absolute()}")
-        with finput(path, inplace=True, backup=None) as lines:
-            for line in lines:
-                if line.strip() ==  "import FormData from 'form-data';":
-                    sub_lines = [
-                        "import * as FormData from 'form-data';\n",
-                        "import { logAxiosRequestConfig } from '../../log/logging';\n"
-                    ]
-                    firstRun = True
-                elif line.strip() == "import type { OpenAPIConfig } from './OpenAPI';":
-                    # https://giacomo-mariani.medium.com/adding-trusted-ca-to-node-client-with-axios-2792024bca4
-                    sub_lines = [
-                        "import type { OpenAPIConfig } from './OpenAPI';\n",
-                        "const https = require('https');\n",
-                        "const fs = require('fs');\n",
-                        "let caCrt = '';\n",
-                        "try {\n",
-                        "caCrt = fs.readFileSync('./public.pem');\n",
-                        "} catch(err) {}\n",
-                        "const httpsAgent = new https.Agent({ ca: caCrt, keepAlive: false, rejectUnauthorized: false });\n"
-                    ]
-                elif line.strip() == "withCredentials: config.WITH_CREDENTIALS,":
-                    frontspace = line.replace(line.strip()+"\n",'')
-                    sub_lines = [
-                        f"{frontspace}withCredentials: config.WITH_CREDENTIALS,\n"
-                        f"{frontspace}httpsAgent: httpsAgent,\n"
-                    ]
-                elif firstRun and line.strip() == "onCancel(() => source.cancel('The user aborted a request.'));":
-                    frontspace = line.replace(line.strip()+"\n",'')
-                    sub_lines = [
-                        f"{frontspace}onCancel(() => source.cancel('The user aborted a request.'));\n",
-                        f"{frontspace}logAxiosRequestConfig(requestConfig);\n"
-                    ]
-                else:
-                    sub_lines = [line]
-
-                for sub_line in sub_lines:
-                    print(sub_line, end='')
-        path = "./src/common/generated/core/OpenAPI.ts"
-        with finput(path, inplace=True, backup=None) as lines:
-            for line in lines:
-                sub_lines = []
-                if line.strip() == "BASE: 'http://127.0.0.1:5000',\n":
-                    frontspace = line.replace(line.strip()+"\n",'')
-                    sub_lines = [
-                        f"{frontspace}BASE: 'https://127.0.0.1:5000',\n"
-                    ]
-                else:
-                    sub_lines = [line]
-                for sub_line in sub_lines:
-                    print(sub_line, end='')
-
-    run("find ./src/ -type f -exec dos2unix {} \;")
-
-def changeTLS():
-    from fileinput import FileInput as finput
-    path,cert = "./src/common/generated/core/request.ts","./ssh/public.pem"
-    if os.path.exists(path):
-        from pathlib import Path
-        run(f"cp {cert} {Path(path).parent.absolute()}")
-        prepped = False
-        with finput(path, inplace=True, backup=None) as lines:
-            for line in lines:
-                if line.strip() ==  "import FormData from 'form-data';":
-                    sub_lines = ["import * as FormData from 'form-data';\n"]
-                elif line.strip() ==  "import * as FormData from 'form-data';":
-                    prepped = True
-                    sub_lines = ["import * as FormData from 'form-data';\n"]
-                elif not prepped and line.strip() == "import type { OpenAPIConfig } from './OpenAPI';":
-                    # https://giacomo-mariani.medium.com/adding-trusted-ca-to-node-client-with-axios-2792024bca4
-                    sub_lines = [
-                        "import type { OpenAPIConfig } from './OpenAPI';\n",
-                        "const https = require('https');\n",
-                        "const fs = require('fs');\n",
-                        "let caCrt = '';\n",
-                        "try {\n",
-                        "caCrt = fs.readFileSync('./public.pem');\n",
-                        "} catch(err) {}\n",
-                        "const httpsAgent = new https.Agent({ ca: caCrt, keepAlive: false, rejectUnauthorized: false });\n"
-                    ]
-                elif not prepped and line.strip() == "withCredentials: config.WITH_CREDENTIALS,":
-                    frontspace = line.replace(line.strip()+"\n",'')
-                    sub_lines = [
-                        f"{frontspace}withCredentials: config.WITH_CREDENTIALS,\n"
-                        f"{frontspace}httpsAgent: httpsAgent,\n"
-                    ]
-                elif line.strip() == "httpsAgent: httpsAgent,":
-                    sub_lines = []
-                else:
-                    sub_lines = [line]
-
-                for sub_line in sub_lines:
-                    print(sub_line, end='')
-
-        path = "./src/common/generated/core/OpenAPI.ts"
-        with finput(path, inplace=True, backup=None) as lines:
-            for line in lines:
-                sub_lines = []
-                if line.strip() == "BASE: 'http://127.0.0.1:5000',":
-                    frontspace = line.replace(line.strip()+"\n",'')
-                    sub_lines = [
-                        f"{frontspace}BASE: 'https://127.0.0.1:5000',\n"
-                    ]
-                elif line.strip() == "BASE: 'https://127.0.0.1:5000',":
-                    frontspace = line.replace(line.strip()+"\n",'')
-                    sub_lines = [
-                        f"{frontspace}BASE: 'http://127.0.0.1:5000',\n"
-                    ]
-                else:
-                    sub_lines = [line]
-                for sub_line in sub_lines:
-                    print(sub_line, end='')
 
 def recording():
     for x in [
@@ -280,48 +132,4 @@ def pub():
     ]:
         run(x)
 
-def getArgs():
-    import argparse
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--env", help="Start the docker environment",action='store_true',default=False)
-    parser.add_argument("--preppy", help="Create the preped python file",action='store_true',default=False)
-    parser.add_argument("--pub", help="Create the zip published file",action='store_true',default=False)
-    parser.add_argument("--prep", help="Prepare the JS/NodeJS stuff",action='store_true',default=False)
-    parser.add_argument("--ini", help="Run the initialization script",action='store_true',default=False)
-    parser.add_argument("--generate", help="Re-Generate the openapi-relevant TypeScript Files from the openapi.json file",action='store_true',default=False)
-    parser.add_argument("--full", help="Run the --ini and the --prep",action='store_true',default=False)
-    parser.add_argument("--cert", help="Generate the instructions for the cert",action='store_true',default=False)
-    parser.add_argument("--tls", help="Flip the secure insecure settings",action='store_true',default=False)
-    parser.add_argument("--code", help="Install the vs code extensions",action='store_true',default=False)
-    parser.add_argument("--recording", help="Install the Recording equipment",action='store_true',default=False)
-    
-    return parser.parse_args()
-
-if __name__ == "__main__":
-    argz = getArgs()
-
-    if argz.env:
-        env()
-    elif argz.pub:
-        pub()
-    elif argz.preppy:
-        preppy()
-    elif argz.prep:
-        prep()
-    elif argz.ini:
-        ini()
-    elif argz.generate:
-        generate()
-    elif argz.full:
-        run("yes|rm -r dist/")
-        vsExtensions()
-        ini()
-        prep()
-    elif argz.cert:
-        generate_cert()
-    elif argz.tls:
-        changeTLS()
-    elif argz.code:
-        vsExtensions()
-    elif argz.recording:
-        recording()
+func_argparse_main()
