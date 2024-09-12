@@ -69,10 +69,12 @@ https://jordaneldredge.com/blog/implementing-pythons-context-manager-pattern-in-
 
 def wait(wait_for:int=2):
     import os,sys,time
+    print("[",end='',flush=True)
     while wait_for>0:
         print(".",end='',flush=True)
         time.sleep(1)
         wait_for = wait_for - 1
+    print("]",flush=True)
 
 def run(cmd:str, wait_for:int=10):
     print(cmd)
