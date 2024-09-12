@@ -40,13 +40,20 @@
 					"ZhouSir.visual-snake-code",
 					"littlefoxteam.vscode-python-test-adapter",
 					"njpwerner.autodocstring",
-					"sourcery.sourcery",
-					"GitHub.copilot",
+					"esbenp.prettier-vscode",
+					"Gerrnperl.outline-map",
 					"hbenl.vscode-test-explorer",
 					"k--kato.intellij-idea-keybindings",
 					"GrapeCity.gc-excelviewer",
-					"rust-lang.rust-analyzer",
-					"cschleiden.vscode-github-actions"
+					"dbaeumer.vscode-eslint",
+					"cschleiden.vscode-github-actions",
+					"ms-python.vscode-pylance",
+					"ms-python.debugpy",
+					"ms-vscode.test-adapter-converter",
+					"amodio.tsl-problem-matcher",
+					"christian-kohler.npm-intellisense",
+					"spmeesseman.vscode-taskexplorer",
+					"mariospapa.vscode-npm-explorer"
 				]
 		}
 	},
