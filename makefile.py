@@ -89,12 +89,17 @@ def env():
         """docker run  --rm -it -v "{0}:/sync"   -p 6902:6901 --privileged --shm-size=512m -e VNC_PW=password  frantzme/dev:ui "/bin/bash echo \"sudo apt-get install -y npm && sudo npm install -g npm@latest\" >> /home/kasm-user/.bashrc && /bin/bash" """.format(curdir)
     )
 
-def ini():
+def ini_one():
     for x in [
         "apt-get update",
         "apt-get --fix-missing",
         "apt-get install -y python3-pip zip unzip wget curl",
         "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash", #https://nodejs.org/en/download/package-manager/current
+    ]:
+        run(x)
+
+def ini_two():
+    for x in [
         "nvm install 20",
         "npm install",
         "npm install -g @vscode/vsce",
