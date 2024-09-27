@@ -22,13 +22,13 @@ jobs:
             - name: Download ballerina distribution
               uses: wei/wget@v1
               with:
-                args: http://dist-dev.ballerina.io/downloads/swan-lake-alpha5/ballerina-swan-lake-alpha5.zip
+                args: https://github.com/ballerina-platform/ballerina-distribution/releases/download/v2201.1.0/ballerina-2201.1.0-swan-lake.zip
             - run: mkdir extractedDistribution
             - name: Unzip ballerina distribution
               uses: TonyBogdanov/zip@1.0
               with:
-                args: unzip -qq ./ballerina-swan-lake-alpha5.zip -d ./extractedDistribution
-            - run: rm ballerina-swan-lake-alpha5.zip
+                args: unzip -qq ./ballerina-2201.1.0-swan-lake.zip -d ./extractedDistribution
+            - run: rm ballerina-2201.1.0-swan-lake.zip
             - run: npm ci
             - name: Build plugin with tests
               uses: GabrielBB/xvfb-action@v1.0
@@ -50,10 +50,10 @@ jobs:
             java-version: "11"
         - run: mkdir extractedDistribution
         - name: Download Ballerina distribution
-          run: Invoke-WebRequest -Uri http://dist-dev.ballerina.io/downloads/swan-lake-alpha5/ballerina-swan-lake-alpha5.zip -OutFile extractedDistribution\ballerina-swan-lake-alpha5.zip
+          run: Invoke-WebRequest -Uri https://github.com/ballerina-platform/ballerina-distribution/releases/download/v2201.1.0/ballerina-2201.1.0-swan-lake.zip -OutFile extractedDistribution\ballerina-2201.1.0-swan-lake.zip
         - name: Unzip Ballerina distribution
-          run: Expand-Archive -LiteralPath extractedDistribution\ballerina-swan-lake-alpha5.zip -DestinationPath extractedDistribution\
-        - run: rm extractedDistribution\ballerina-swan-lake-alpha5.zip
+          run: Expand-Archive -LiteralPath extractedDistribution\ballerina-2201.1.0-swan-lake.zip -DestinationPath extractedDistribution\
+        - run: rm extractedDistribution\ballerina-2201.1.0-swan-lake.zip
         - run: npm ci -f
         - name: Build plugin with tests
           uses: GabrielBB/xvfb-action@v1.0
