@@ -1,4 +1,4 @@
-# The Ballerina Compiler Toolkit for Visual Studio Code
+# [Deprecated] The Ballerina Compiler Toolkit for Visual Studio Code
 
 This toolkit introduces the capability to investigate and delve in to the syntax trees of Ballerina code and to retrieve the syntax API calls that are required to create a particular piece of Ballerina code. However, this extension only provides additional capabilities to support Ballerina developers. In order to experience language intelligence and other core features, install the Ballerina extension. Checkout the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=WSO2.ballerina) for further details.
 
